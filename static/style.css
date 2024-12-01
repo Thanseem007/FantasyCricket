@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .budget {
+    margin: 20px 0;
+  }
+  
+  .player-list, .selected-team {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  a {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+  
+  a:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: darkgreen;
+  }
+
+    /* Styles for scrollable player list */
+    .player-list {
+        max-height: 400px;
+        overflow-y: scroll;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .player-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .disabled {
+        background-color: #ccc;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    .error-message {
+        color: red;
+        font-weight: bold;
+    }
+
+    .counter {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .select-btn {
+        background-color: #28a745; /* Green */
+        color: white;
+        padding: 8px 15px;
+        border: 2px solid #28a745;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .select-btn:hover {
+        background-color: #218838; /* Darker green on hover */
+        transform: scale(1.1); /* Slightly enlarge button */
+    }
+
+    .select-btn:focus {
+        outline: none; /* Remove focus outline */
+    }
+
+    #submit-button {
+        background-color: #007bff; /* Blue background */
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    #submit-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarge the button */
+    }
+    
+    #submit-button:disabled {
+        background-color: #ccc; /* Grey when disabled */
+        cursor: not-allowed;
+        color: #666;
+    }
+  
