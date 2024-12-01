@@ -44,8 +44,7 @@ def index():
     budget = 100 - sum(player["price"] for player in team)
     return render_template("index.html", players=players, budget=budget, team=team)
 
-@app.route("/")
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/" , methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         username = request.form["username"]
