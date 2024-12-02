@@ -1,7 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user 
 from google.cloud import storage
 import openpyxl
 from google.cloud import storage
@@ -128,7 +128,6 @@ def submit_team():
     # file_url = blob.public_url  # Make the file publicly accessible
     file_url = update_excel_file(username, apartment_number,team)
     return render_template("submit.html", team=team)
-
 
 
 # Helper Functions
