@@ -5,13 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Login</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Login form container */
+        .login-container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Logo styling */
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+
+        /* Form title */
+        .login-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input fields */
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Submit button */
+        button {
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer message */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="POST" action="{{ url_for('login') }}">
-        <input type="text" name="username" placeholder="Enter your username" required>
-        <input type="text" name="apartment_number" placeholder="Enter your apartment number" required>
-        <button type="submit">Login</button>
-    </form>
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="{{ url_for('static', filename='SevenImage.Jpg') }}" alt="Logo Placeholder">
+        </div>
+
+        <!-- Title -->
+        <div class="login-title">Welcome to Fantasy Cricket</div>
+
+        <!-- Login Form -->
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <input type="text" name="apartment_number" placeholder="Enter your apartment number" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Footer -->
+        
+    </div>
 </body>
 </html>
