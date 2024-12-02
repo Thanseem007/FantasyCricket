@@ -123,7 +123,7 @@ def submit_team():
     
     # # Return the filename or the URL of the file
     # file_url = blob.public_url  # Make the file publicly accessible
-    return render_template("submit.html", team=team, filename=filename)
+    return render_template("submit.html", team=team)
 
 
 
