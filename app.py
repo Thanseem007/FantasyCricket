@@ -76,26 +76,26 @@ def logout():
 @login_required
 def select_player(player_id):
     username = current_user.id
-    team = load_team(username)
+    team = session.get('team', [])  # Load team from session (if exists)
     player = next((p for p in players if p["id"] == player_id), None)
 
     if player and player not in team:
         budget = 100 - sum(p["price"] for p in team)
         if budget >= player["price"] and len(team) < 11:
             team.append(player)
-            save_team(username, team)  # Save the updated team
+            session['team'] = team  # Save updated team to session
     return redirect(url_for("index"))
 
 @app.route("/remove/<int:player_id>")
 @login_required
 def remove_player(player_id):
     username = current_user.id
-    team = load_team(username)
+    team = session.get('team', [])  # Load team from session (if exists)
     player = next((p for p in team if p["id"] == player_id), None)
 
     if player:
         team.remove(player)
-        save_team(username, team)  # Save the updated team
+        session['team'] = team  # Save updated team to session
     return redirect(url_for("index"))
 
 @app.route("/submit", methods=["POST"])
@@ -103,26 +103,13 @@ def remove_player(player_id):
 def submit_team():
     username = current_user.id
     apartment_number = user_apartments.get(username, "unknown")
-    team = load_team(username)
-    
-    # Create the file content (team in .txt format)
-    file_content = ""
-    for player in team:
-        file_content += f"{player['name']} - {player['role']}\n"
+    team = session.get('team', [])  # Get the team from the session
 
-    # Save the team to Google Cloud Storage
-    filename = f"{username}_{apartment_number}.txt"
-    
-    # Initialize the storage client and get the bucket
-    client = get_storage_client()
-    bucket = client.bucket(BUCKET_NAME)
-    
-    # Create a blob object in the bucket and upload the content
-    blob = bucket.blob(filename)
-    blob.upload_from_string(file_content)
-    
-    # Return the filename or the URL of the file
-    file_url = blob.public_url  # Make the file publicly accessible
+    # Save the team to Google Cloud Storage as a JSON file
+    save_team(username, team)  # This saves the team as a JSON file to Cloud Storage
+
+    # Clear the session team data (if you don't want to keep it in memory after submit)
+    session.pop('team', None)
     return render_template("submit.html", team=team, filename=filename, file_url=file_url)
 
 
