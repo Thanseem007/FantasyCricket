@@ -2,6 +2,9 @@ import os
 import json
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from google.cloud import storage
+
+BUCKET_NAME = "fantasy_cricket" 
 
 app = Flask(__name__)
 app.secret_key = "secretkey"  # Replace with a secure key
@@ -56,9 +59,9 @@ def login():
         user_apartments[username] = apartment_number
 
         # Load team if it exists
-        filepath = os.path.join(team_dir, f"{username}_{apartment_number}.json")
-        if not os.path.exists(filepath):
-            save_team(username, [])  # Initialize an empty team if no file exists
+        team = load_team(username)
+        if not team:  # If no team, initialize an empty team
+            save_team(username, [])
 
         return redirect(url_for("index"))
     return render_template("login.html")
@@ -107,20 +110,29 @@ def submit_team():
             file.write(f"{player['name']} - {player['role']}\n")
     return render_template("submit.html", team=team, filename=filepath)
 
+
+
 # Helper Functions
 def save_team(username, team):
     apartment_number = user_apartments.get(username, "unknown")
-    filepath = os.path.join(team_dir, f"{username}_{apartment_number}.json")
-    with open(filepath, "w") as file:
-        json.dump(team, file)
+    filename = f"{username}_{apartment_number}.json"
+    client = get_storage_client()
+    bucket = client.bucket(BUCKET_NAME)
+    blob = bucket.blob(filename)
+    blob.upload_from_string(json.dumps(team))
 
 def load_team(username):
     apartment_number = user_apartments.get(username, "unknown")
-    filepath = os.path.join(team_dir, f"{username}_{apartment_number}.json")
-    if os.path.exists(filepath):
-        with open(filepath, "r") as file:
-            return json.load(file)
+    filename = f"{username}_{apartment_number}.json"
+    client = get_storage_client()
+    bucket = client.bucket(BUCKET_NAME)
+    blob = bucket.blob(filename)
+    if blob.exists():
+        return json.loads(blob.download_as_text())
     return []
+
+def get_storage_client():
+    return storage.Client()
 
 if __name__ == "__main__":
     app.run(debug=True)
