@@ -3,6 +3,9 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from google.cloud import storage
+import openpyxl
+from google.cloud import storage
+import io
 
 BUCKET_NAME = "fantasy_cricket" 
 
@@ -123,6 +126,7 @@ def submit_team():
     
     # # Return the filename or the URL of the file
     # file_url = blob.public_url  # Make the file publicly accessible
+    file_url = update_excel_file(username, team)
     return render_template("submit.html", team=team)
 
 
@@ -148,6 +152,51 @@ def load_team(username):
 
 def get_storage_client():
     return storage.Client()
+
+def update_excel_file(username, team):
+    # Define the Excel file name in the GCS bucket
+    excel_filename = "user_players.xlsx"
+
+    # Initialize the GCS client and bucket
+    client = get_storage_client()
+    bucket = client.bucket(BUCKET_NAME)  # Replace with your actual GCS bucket name
+    blob = bucket.blob(excel_filename)
+
+    # Check if the file exists
+    if blob.exists():
+        # Download the existing file from GCS
+        excel_data = blob.download_as_bytes()
+        workbook = openpyxl.load_workbook(io.BytesIO(excel_data))
+        sheet = workbook.active
+    else:
+        # If the file does not exist, create a new Excel file
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"])  # Add header row
+
+    # Prepare the row to be added (username + selected players)
+    row = [username]  # Start with the username in the first column
+
+    # Add player names to the row
+    for player in team:
+        row.append(player["name"])
+
+    # Append the row to the sheet
+    sheet.append(row)
+
+    # Save the workbook to a BytesIO object
+    updated_excel_data = io.BytesIO()
+    workbook.save(updated_excel_data)
+    updated_excel_data.seek(0)  # Rewind the stream to the beginning
+
+    # Upload the updated Excel file back to GCS
+    blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+    # Make the file publicly accessible (optional)
+    blob.make_public()
+
+    # Return the public URL of the Excel file (or you can return a signed URL if needed)
+    return blob.public_url
 
 if __name__ == "__main__":
     app.run(debug=True)
