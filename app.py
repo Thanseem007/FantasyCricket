@@ -172,8 +172,7 @@ def update_excel_file(username, team):
         # If the file does not exist, create a new Excel file
         workbook = openpyxl.Workbook()
         sheet = workbook.active
-        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11"])  # Add header row
-
+        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11", "Apartment Number"])  # Add header row
     # Prepare the row to be added (username + selected players)
     row = [username]  # Start with the username in the first column
 
@@ -182,7 +181,23 @@ def update_excel_file(username, team):
         row.append(player["name"])
 
     # Append the row to the sheet
-    sheet.append(row)
+    row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players
+    row.append(apartment_number)  # Add the apartment number as the last column
+
+    # Check if an entry for this username and apartment number already exists
+    existing_row = None
+    for r_idx, existing_row_data in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
+        if existing_row_data[0] == username and existing_row_data[-1] == apartment_number:
+            existing_row = r_idx
+            break
+
+    if existing_row:
+        # Update the existing row
+        for col_idx, value in enumerate(row, start=1):
+            sheet.cell(row=existing_row, column=col_idx, value=value)
+    else:
+        # Append a new row if no existing entry is found
+        sheet.append(row)
 
     # Save the workbook to a BytesIO object
     updated_excel_data = io.BytesIO()
