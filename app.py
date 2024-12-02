@@ -104,11 +104,26 @@ def submit_team():
     username = current_user.id
     apartment_number = user_apartments.get(username, "unknown")
     team = load_team(username)
-    filepath = f"{username}_{apartment_number}.txt"
-    with open(filepath, "w") as file:
-        for player in team:
-            file.write(f"{player['name']} - {player['role']}\n")
-    return render_template("submit.html", team=team, filename=filepath)
+    
+    # Create the file content (team in .txt format)
+    file_content = ""
+    for player in team:
+        file_content += f"{player['name']} - {player['role']}\n"
+
+    # Save the team to Google Cloud Storage
+    filename = f"{username}_{apartment_number}.txt"
+    
+    # Initialize the storage client and get the bucket
+    client = get_storage_client()
+    bucket = client.bucket(BUCKET_NAME)
+    
+    # Create a blob object in the bucket and upload the content
+    blob = bucket.blob(filename)
+    blob.upload_from_string(file_content)
+    
+    # Return the filename or the URL of the file
+    file_url = blob.public_url  # Make the file publicly accessible
+    return render_template("submit.html", team=team, filename=filename, file_url=file_url)
 
 
 
