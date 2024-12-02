@@ -128,20 +128,5 @@ body {
         color: #666;
     }
 
-    .logout-btn {
-        color: white;
-        background-color: #dc3545; /* Bootstrap danger red */
-        padding: 8px 15px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 14px;
-        float: right;
-        margin-top: -40px;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .logout-btn:hover {
-        background-color: #c82333; /* Darker red */
-        transform: scale(1.1); /* Slightly enlarge button */
-    }
+   
   
