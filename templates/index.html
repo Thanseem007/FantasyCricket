@@ -225,7 +225,12 @@
             <h3>Available Players</h3>
             {% for player in players %}
             <div class="player-item">
-                <span>{{ player.name }} ({{ player.role }}) - ₹{{ player.price }}</span>
+                <span>
+                    <a href=" {{player.playerlink }}" target="_blank">
+                        {{ player.name }}
+                    </a> 
+                    ({{ player.role }}) - ₹{{ player.price }}
+                </span>
                 {% if player in team %}
                 <button class="disabled select-btn">Selected</button>
                 {% else %}
