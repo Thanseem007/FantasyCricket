@@ -329,7 +329,22 @@
         const selectedCaptainId = radio.value;
         console.log("Selected Captain ID:", selectedCaptainId);
         // Optionally, you can send the selected ID to the backend using an AJAX request.
+        // Call the backend API to update the captain
+        fetch(`/update_captain/${selectedCaptainId}`, {
+        method: 'POST',
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+            console.log('Captain updated successfully');
+        } else {
+            console.error('Error updating captain:', data.message);
         }
+        })
+      .catch(error => {
+        console.error('Error:', error);
+       });
+       }
 
         // Initialize submit button state
         updateSubmitButtonState();

@@ -6,6 +6,7 @@ from google.cloud import storage
 import openpyxl
 from google.cloud import storage
 import io
+from flask import jsonify
 
 BUCKET_NAME = "fantasy_cricket" 
 
@@ -131,6 +132,39 @@ def submit_team():
     file_url = update_excel_file(username, apartment_number,team,captain_id)
     return render_template("submit.html", team=team)
 
+@app.route('/update_captain/<int:player_id>', methods=['POST'])
+def update_captain(player_id):
+    try:
+        # Get player ID from the request
+        #player_id = request.json.get('player_id')
+
+        if not player_id:
+            return jsonify({'error': 'Player ID is required'}), 400
+
+
+        # Read the file from Google Cloud Storage
+        username = current_user.id
+        team = load_team(username)
+
+        # Update IsCaptain field
+        captain_updated = False
+        for player in team:
+            if player["id"] == player_id:
+                player["IsCaptain"] = 1
+                captain_updated = True
+            else:
+                player["IsCaptain"] = 0
+
+        if not captain_updated:
+            return jsonify({'error': 'Player not found'}), 404
+
+        # Save the updated JSON
+        save_team(username, team)
+
+        return jsonify({'message': 'Captain updated successfully'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # Helper Functions
 def save_team(username, team):
