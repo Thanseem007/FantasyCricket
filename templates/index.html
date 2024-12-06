@@ -259,6 +259,7 @@
                             name="captain" 
                             value="{{ player.id }}" 
                             {% if player.IsCaptain == 1 %}checked{% endif %}
+                            onchange="handleCaptainChange(this)"
                         >
                         <img src="https://cdn4.iconfinder.com/data/icons/cricket-11/48/25-512.png" alt="Captain" width="20" height="20">
                     </label>
@@ -281,6 +282,8 @@
         const submitButton = document.getElementById('submit-button');
         const errorMessage = document.getElementById('error-message');
         const loader = document.getElementById('loader');
+        
+       
 
         function selectPlayer(playerId, playerPrice) {
             if (budget < playerPrice) {
@@ -301,17 +304,26 @@
         }
 
         function updateSubmitButtonState() {
-            if (playersSelected < 11) {
+            if (playersSelected < 11 ) {
                 submitButton.setAttribute('disabled', true);
             }
         }
 
         document.querySelector('form').addEventListener('submit', function() {
         const selectedCaptain = document.querySelector('input[name="captain"]:checked');
-        if (selectedCaptain) {
+        if (!selectedCaptain) {
+            event.preventDefault(); // Prevent form submission
+           errorMessage.textContent = "Please select a captain before submitting your team.";
+        } else {
             document.getElementById('captain-id').value = selectedCaptain.value;
         }
         });
+
+        function handleCaptainChange(radio) {
+        const selectedCaptainId = radio.value;
+        console.log("Selected Captain ID:", selectedCaptainId);
+        // Optionally, you can send the selected ID to the backend using an AJAX request.
+        }
 
         // Initialize submit button state
         updateSubmitButtonState();
