@@ -8,12 +8,6 @@ body {
     margin: 20px 0;
   }
   
-  .player-list, .selected-team {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
   
   ul {
     list-style-type: none;

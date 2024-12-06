@@ -218,7 +218,7 @@
     <div class="counter">
         Players Selected: <span id="players-selected">{{ team|length }}</span> / 11
     </div>
-    <div class="error-message" id="error-message"></div>
+    
 
     <div class="players-container">
         <!-- Available Players Section -->
@@ -268,8 +268,10 @@
                 {% endfor %}
             </ul>
         </div>
-    </div>
 
+        <div class="error-message" id="error-message"></div>
+    </div>
+ 
     <form action="{{ url_for('submit_team') }}" method="POST">
         <input type="hidden" name="captain_id" id="captain-id">
         <button type="submit" id="submit-button" {% if team|length < 11 %}disabled{% endif %}>Submit Team</button>
@@ -286,16 +288,15 @@
        
 
         function selectPlayer(playerId, playerPrice) {
-            if (budget < playerPrice) {
-                errorMessage.textContent = "Not enough budget to select this player.";
-                return;
-            }
-
             if (playersSelected >= 11) {
                 errorMessage.textContent = "You have already selected the maximum number of players.";
                 return;
             }
 
+            if (budget < playerPrice) {
+                errorMessage.textContent = "Not enough budget to select this player.";
+                return;
+            }
             // Show the loader
             loader.style.display = "block";
 
