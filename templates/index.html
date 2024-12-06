@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy Cricket</title>
@@ -251,16 +252,17 @@
                 {% for player in team %}
                 <li>
                     {{ player.name }} ({{ player.role }}) - ₹{{ player.price }}
-                    <a class="remove_Player" href="{{ url_for('remove_player', player_id=player.id) }}">Remove</a>
-                    <label>
+                    <label class="captain-label">
+                        <div class="actions">
                         <input 
                             type="radio" 
                             name="captain" 
                             value="{{ player.id }}" 
                             {% if player.IsCaptain == 1 %}checked{% endif %}
                         >
-                        Captain
+                        <img src="https://cdn4.iconfinder.com/data/icons/cricket-11/48/25-512.png" alt="Captain" width="20" height="20">
                     </label>
+                    <a class="remove_Player" href="{{ url_for('remove_player', player_id=player.id) }}">Remove</a>
                 </li>
                 {% endfor %}
             </ul>

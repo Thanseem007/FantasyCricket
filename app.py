@@ -168,7 +168,7 @@ def get_storage_client():
 def update_excel_file(username,apartment_number ,team,captain_id):
     # Define the Excel file name in the GCS bucket
     excel_filename = "user_players.xlsx"
-
+    
     # Initialize the GCS client and bucket
     client = get_storage_client()
     bucket = client.bucket(BUCKET_NAME)  # Replace with your actual GCS bucket name
@@ -190,8 +190,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
 
     # Add player names to the row
     for player in team:
-        if player["id"] == captain_id:
-            print(captain_id)
+        if str(player["id"]) == str(captain_id):
             row.append(player["name"] + " (C) ")
         else:
             row.append(player["name"])
