@@ -268,6 +268,7 @@
     </div>
 
     <form action="{{ url_for('submit_team') }}" method="POST">
+        <input type="hidden" name="captain_id" id="captain-id">
         <button type="submit" id="submit-button" {% if team|length < 11 %}disabled{% endif %}>Submit Team</button>
     </form>
 
@@ -302,6 +303,13 @@
                 submitButton.setAttribute('disabled', true);
             }
         }
+
+        document.querySelector('form').addEventListener('submit', function() {
+        const selectedCaptain = document.querySelector('input[name="captain"]:checked');
+        if (selectedCaptain) {
+            document.getElementById('captain-id').value = selectedCaptain.value;
+        }
+        });
 
         // Initialize submit button state
         updateSubmitButtonState();

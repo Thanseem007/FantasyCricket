@@ -20,6 +20,7 @@ login_manager.login_view = "login"
 # Dictionary to store user apartment numbers
 user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
+is_Cloud = True
 
 # Ensure the directory exists
 os.makedirs(team_dir, exist_ok=True)
@@ -108,7 +109,7 @@ def submit_team():
     apartment_number = user_apartments.get(username, "unknown")
     team = load_team(username)
     
-    captain_id = request.form.get('captain')
+    captain_id = request.form.get('captain_id')
     # Create the file content (team in .txt format)
     # file_content = ""
     # for player in team:
@@ -134,20 +135,31 @@ def submit_team():
 # Helper Functions
 def save_team(username, team):
     apartment_number = user_apartments.get(username, "unknown")
-    filename = f"{username}_{apartment_number}.json"
-    client = get_storage_client()
-    bucket = client.bucket(BUCKET_NAME)
-    blob = bucket.blob(filename)
-    blob.upload_from_string(json.dumps(team))
+    if is_Cloud :
+      filename = f"{username}_{apartment_number}.json"
+      client = get_storage_client()
+      bucket = client.bucket(BUCKET_NAME)
+      blob = bucket.blob(filename)
+      blob.upload_from_string(json.dumps(team))
+    else :
+      filepath = os.path.join(team_dir, f"{username}_{apartment_number}.json")
+      with open(filepath, "w") as file:
+          json.dump(team, file)
 
 def load_team(username):
     apartment_number = user_apartments.get(username, "unknown")
     filename = f"{username}_{apartment_number}.json"
-    client = get_storage_client()
-    bucket = client.bucket(BUCKET_NAME)
-    blob = bucket.blob(filename)
-    if blob.exists():
-        return json.loads(blob.download_as_text())
+    if(is_Cloud) :
+       client = get_storage_client()
+       bucket = client.bucket(BUCKET_NAME)
+       blob = bucket.blob(filename)
+       if blob.exists():
+          return json.loads(blob.download_as_text())
+    else :
+        filepath = os.path.join(team_dir, f"{username}_{apartment_number}.json")
+        if os.path.exists(filepath):
+           with open(filepath, "r") as file:
+            return json.load(file)
     return []
 
 def get_storage_client():
@@ -179,6 +191,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     # Add player names to the row
     for player in team:
         if player["id"] == captain_id:
+            print(captain_id)
             row.append(player["name"] + " (C) ")
         else:
             row.append(player["name"])
@@ -215,6 +228,8 @@ def update_excel_file(username,apartment_number ,team,captain_id):
 
     # Return the public URL of the Excel file (or you can return a signed URL if needed)
     return blob.public_url
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
