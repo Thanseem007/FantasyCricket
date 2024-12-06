@@ -252,6 +252,15 @@
                 <li>
                     {{ player.name }} ({{ player.role }}) - ₹{{ player.price }}
                     <a class="remove_Player" href="{{ url_for('remove_player', player_id=player.id) }}">Remove</a>
+                    <label>
+                        <input 
+                            type="radio" 
+                            name="captain" 
+                            value="{{ player.id }}" 
+                            {% if player.IsCaptain == 1 %}checked{% endif %}
+                        >
+                        Captain
+                    </label>
                 </li>
                 {% endfor %}
             </ul>

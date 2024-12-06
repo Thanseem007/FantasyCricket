@@ -108,6 +108,7 @@ def submit_team():
     apartment_number = user_apartments.get(username, "unknown")
     team = load_team(username)
     
+    captain_id = request.form.get('captain')
     # Create the file content (team in .txt format)
     # file_content = ""
     # for player in team:
@@ -126,7 +127,7 @@ def submit_team():
     
     # # Return the filename or the URL of the file
     # file_url = blob.public_url  # Make the file publicly accessible
-    file_url = update_excel_file(username, apartment_number,team)
+    file_url = update_excel_file(username, apartment_number,team,captain_id)
     return render_template("submit.html", team=team)
 
 
@@ -152,7 +153,7 @@ def load_team(username):
 def get_storage_client():
     return storage.Client()
 
-def update_excel_file(username,apartment_number ,team):
+def update_excel_file(username,apartment_number ,team,captain_id):
     # Define the Excel file name in the GCS bucket
     excel_filename = "user_players.xlsx"
 
@@ -177,7 +178,10 @@ def update_excel_file(username,apartment_number ,team):
 
     # Add player names to the row
     for player in team:
-        row.append(player["name"])
+        if player["id"] == captain_id:
+            row.append(player["name"] + " (C) ")
+        else:
+            row.append(player["name"])
 
     # Append the row to the sheet
     row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players

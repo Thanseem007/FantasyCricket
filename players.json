@@ -1,18 +1,18 @@
 [
-    {"id": 1, "name": "Yogaraj", "role": "Batsman", "price": 12,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 2, "name": "Rajini Ashok", "role": "Bowler", "price": 13,"playerlink":"https://cricheroes.com/player-profile/2099175/rajini-ashok/matches"},
-    {"id": 3, "name": "Vijay Surya S", "role": "All-Rounder", "price": 11,"playerlink":"https://cricheroes.com/player-profile/592213/vijay-surya-s/matches"},
-    {"id": 4, "name": "MS Dhoni", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 5, "name": "Rohit Sharma", "role": "Batsman", "price": 10,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 6, "name": "Ravindra Jadeja", "role": "All-Rounder", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 7, "name": "KL Rahul", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 8, "name": "Mohammad Shami", "role": "Bowler", "price": 7,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 9, "name": "Shubman Gill", "role": "Batsman", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 10, "name": "Yuzvendra Chahal", "role": "Bowler", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 11, "name": " Jadeja", "role": "All-Rounder", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 12, "name": "KL ", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 13, "name": "Mohammad ", "role": "Bowler", "price": 7,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 14, "name": "Shubman ", "role": "Batsman", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"},
-    {"id": 15, "name": " Chahal", "role": "Bowler", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches"}
+    {"id": 1, "name": "Yogaraj", "role": "Batsman", "price": 12,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 2, "name": "Rajini Ashok", "role": "Bowler", "price": 13,"playerlink":"https://cricheroes.com/player-profile/2099175/rajini-ashok/matches","IsCaptain":"0"},
+    {"id": 3, "name": "Vijay Surya S", "role": "All-Rounder", "price": 11,"playerlink":"https://cricheroes.com/player-profile/592213/vijay-surya-s/matches","IsCaptain":"0"},
+    {"id": 4, "name": "MS Dhoni", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 5, "name": "Rohit Sharma", "role": "Batsman", "price": 10,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 6, "name": "Ravindra Jadeja", "role": "All-Rounder", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 7, "name": "KL Rahul", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 8, "name": "Mohammad Shami", "role": "Bowler", "price": 7,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 9, "name": "Shubman Gill", "role": "Batsman", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 10, "name": "Yuzvendra Chahal", "role": "Bowler", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 11, "name": " Jadeja", "role": "All-Rounder", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 12, "name": "KL ", "role": "Wicketkeeper", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 13, "name": "Mohammad ", "role": "Bowler", "price": 7,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 14, "name": "Shubman ", "role": "Batsman", "price": 9,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"},
+    {"id": 15, "name": " Chahal", "role": "Bowler", "price": 8,"playerlink":"https://cricheroes.com/player-profile/9983668/yogaraj/matches","IsCaptain":"0"}
 
 ]
