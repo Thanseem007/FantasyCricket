@@ -26,7 +26,7 @@ body {
     margin: 10px 0;
   }
   
-  a {
+  .remove_Player {
     padding: 5px 10px;
     background-color: #007bff;
     color: white;
@@ -34,7 +34,7 @@ body {
     border-radius: 3px;
   }
   
-  a:hover {
+  .remove_Player:hover {
     background-color: #0056b3;
   }
   
@@ -126,6 +126,19 @@ body {
         background-color: #ccc; /* Grey when disabled */
         cursor: not-allowed;
         color: #666;
+    }
+
+    .player-link {
+        color: #007bff; /* Bright blue for visibility */
+        font-weight: bold; /* Emphasize the name */
+        text-decoration: none; /* Remove underline */
+        font-size: 1.1em; /* Slightly larger font size */
+        transition: color 0.3s ease;
+    }
+
+    .player-link:hover {
+        color: #0056b3; /* Darker blue on hover */
+        text-decoration: underline; /* Underline on hover */
     }
 
    
