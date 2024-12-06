@@ -11,7 +11,7 @@
     <h2>Your Selected Team:</h2>
     <ul>
         {% for player in team %}
-        <li>{{ player.name }} - {{ player.role }}</li>
+        <li>{{ player.name }} {% if player.IsCaptain == 1 %} - (C) {% endif %} - {{ player.role }}</li>
         {% endfor %}
     </ul>
     <a href="{{ url_for('index') }}">Go Back</a>
