@@ -218,7 +218,7 @@
     <div class="counter">
         Players Selected: <span id="players-selected">{{ team|length }}</span> / 11
     </div>
-    
+    <div class="error-message" id="error-message-selection"></div>
 
     <div class="players-container">
         <!-- Available Players Section -->
@@ -283,18 +283,21 @@
         const playersSelectedDisplay = document.getElementById('players-selected');
         const submitButton = document.getElementById('submit-button');
         const errorMessage = document.getElementById('error-message');
+        const erroMessageSelection =document.getElementById('error-message-selection'); 
         const loader = document.getElementById('loader');
         
        
 
         function selectPlayer(playerId, playerPrice) {
+            erroMessageSelection.textContent ="";
+            errorMessage.textContent ="";
             if (playersSelected >= 11) {
-                errorMessage.textContent = "You have already selected the maximum number of players.";
+                erroMessageSelection.textContent = "You have already selected the maximum number of players.";
                 return;
             }
 
             if (budget < playerPrice) {
-                errorMessage.textContent = "Not enough budget to select this player.";
+                erroMessageSelection.textContent = "Not enough budget to select this player.";
                 return;
             }
             // Show the loader
@@ -312,6 +315,8 @@
 
         document.querySelector('form').addEventListener('submit', function() {
         const selectedCaptain = document.querySelector('input[name="captain"]:checked');
+        erroMessageSelection.textContent ="";
+        errorMessage.textContent ="";
         if (!selectedCaptain) {
             event.preventDefault(); // Prevent form submission
            errorMessage.textContent = "Please select a captain before submitting your team.";
