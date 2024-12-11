@@ -49,7 +49,7 @@ def load_user(username):
 def index():
     username = current_user.id
     team = load_team(username)
-    budget = 100 - sum(player["price"] for player in team)
+    budget = 90 - sum(player["price"] for player in team)
     return render_template("index.html", players=players, budget=budget, team=team)
 
 @app.route("/" , methods=["GET", "POST"])
