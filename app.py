@@ -178,7 +178,7 @@ def update_captain(player_id):
 @app.route('/toggle_flag', methods=['GET'])
 def toggle_flag():
     # Retrieve the file from the bucket
-    bucket = get_storage_client.get_bucket(BUCKET_NAME)
+    bucket = get_storage_client().bucket(BUCKET_NAME)
     blob = bucket.blob(DO_SERVER_DOWN)
     
     # Download the current content of the file
