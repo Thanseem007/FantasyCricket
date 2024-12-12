@@ -62,6 +62,15 @@
             box-sizing: border-box;
         }
 
+        input[type="number"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         /* Submit button */
         button {
             background-color: #4caf50;
@@ -93,6 +102,10 @@
         .footer a:hover {
             text-decoration: underline;
         }
+        input::placeholder {
+        font-size: 15px; /* Adjust the font size as needed */
+        color: #888; /* Optional: change color */
+    }
     </style>
 </head>
 <body>
@@ -107,8 +120,9 @@
 
         <!-- Login Form -->
         <form method="POST" action="{{ url_for('login') }}">
-            <input type="text" name="username" placeholder="Enter your username" required>
-            <input type="text" name="apartment_number" placeholder="Enter your apartment number" required>
+            <input type="text" name="username" placeholder="Enter your name" required>
+            <input type="text" name="apartment_number" placeholder="Enter apartment number and PIN code (e.g. 101-12345)" required  pattern="^\d{4,5}-\d{3,9}$" title="Format: 101-123 or 10101-123456789">
+            <small>Note: Remember your apartment number and PIN for future logins.</small>
             <button type="submit">Login</button>
         </form>
 

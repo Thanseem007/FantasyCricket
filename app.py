@@ -9,6 +9,7 @@ import io
 from flask import jsonify
 
 BUCKET_NAME = "fantasy_cricket" 
+DO_SERVER_DOWN = "doServerdown.txt"
 
 app = Flask(__name__)
 app.secret_key = "secretkey"  # Replace with a secure key
@@ -67,7 +68,8 @@ def login():
         team = load_team(username)
         if not team:  # If no team, initialize an empty team
             save_team(username, [])
-
+        if IsDownTimeReached() :
+            return redirect(url_for("server_down"))
         return redirect(url_for("index"))
     return render_template("login.html")
 
@@ -76,6 +78,11 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("login"))
+
+@app.route("/server_down")
+def server_down():
+    print (123)
+    return render_template("server_down.html")
 
 @app.route("/select/<int:player_id>")
 @login_required
@@ -106,6 +113,8 @@ def remove_player(player_id):
 @app.route("/submit", methods=["POST"])
 @login_required
 def submit_team():
+    if IsDownTimeReached() :
+            return redirect(url_for("server_down"))
     username = current_user.id
     apartment_number = user_apartments.get(username, "unknown")
     team = load_team(username)
@@ -262,7 +271,31 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     # Return the public URL of the Excel file (or you can return a signed URL if needed)
     return blob.public_url
 
+def IsDownTimeReached():
+    try:
+        if(is_Cloud) :
+        # Initialize a client
+            client = get_storage_client()
 
+        # Get the bucket
+            bucket = client.bucket(BUCKET_NAME)
+
+        # Get the blob (file)
+            blob = bucket.blob(DO_SERVER_DOWN)
+
+        # Read the content of the file
+            flag_value = blob.download_as_text().strip()
+        else :
+            filepath = os.path.join(team_dir, DO_SERVER_DOWN)
+            with open(filepath, 'r') as file:
+              flag_value = file.read().strip()
+        # Check if the flag is 0
+        print(type(flag_value))
+        if flag_value =="1" :
+         return True
+        return False
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     app.run(debug=True)
