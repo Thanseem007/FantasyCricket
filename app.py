@@ -175,6 +175,23 @@ def update_captain(player_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/toggle_flag', methods=['GET'])
+def toggle_flag():
+    # Retrieve the file from the bucket
+    bucket = get_storage_client.get_bucket(BUCKET_NAME)
+    blob = bucket.blob(DO_SERVER_DOWN)
+    
+    # Download the current content of the file
+    current_value =  blob.download_as_text().strip()
+
+    # Update the content (for example, replacing the current value)
+    new_value = '1' if current_value == '0' else '0'
+    
+    # Upload the updated content back to the bucket
+    blob.upload_from_string(new_value)
+    
+    return jsonify({'message': f'File updated successfully with value {new_value}'}), 200
+
 # Helper Functions
 def save_team(username, team):
     apartment_number = user_apartments.get(username, "unknown")
