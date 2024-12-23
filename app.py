@@ -23,6 +23,7 @@ login_manager.login_view = "login"
 user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
 is_Cloud = True
+storage_client = storage.Client()
 
 # Ensure the directory exists
 os.makedirs(team_dir, exist_ok=True)
@@ -223,7 +224,7 @@ def load_team(username):
     return []
 
 def get_storage_client():
-    return storage.Client()
+    return storage_client
 
 def update_excel_file(username,apartment_number ,team,captain_id):
     # Define the Excel file name in the GCS bucket
