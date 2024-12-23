@@ -8,7 +8,7 @@ from google.cloud import storage
 import io
 from flask import jsonify
 
-BUCKET_NAME = "fantasy_cricket" 
+BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
 
 app = Flask(__name__)
