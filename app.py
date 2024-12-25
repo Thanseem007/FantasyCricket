@@ -263,7 +263,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     captain= ""
     for player in team:
         if str(player["id"]) == str(captain_id):
-            row.append(player["name"] + " (C) ")
+            row.append(player["name"])
             captain=player["name"]
         else:
             row.append(player["name"])
