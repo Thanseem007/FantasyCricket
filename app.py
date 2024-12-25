@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user 
 from google.cloud import storage
 import openpyxl
@@ -10,6 +10,7 @@ from flask import jsonify
 
 BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
+USER_TABLE = "userdata.xlsx"
 
 app = Flask(__name__)
 app.secret_key = "secretkey"  # Replace with a secure key
@@ -22,8 +23,8 @@ login_manager.login_view = "login"
 # Dictionary to store user apartment numbers
 user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
-is_Cloud = True
-storage_client = storage.Client()
+is_Cloud = False
+#storage_client = storage.Client()
 
 # Ensure the directory exists
 os.makedirs(team_dir, exist_ok=True)
@@ -59,6 +60,17 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         apartment_number = request.form["apartment_number"]
+          
+        # Fetch credentials from the Excel file
+        credentials = get_credentials_from_excel()
+
+        # Check if the username and password exist
+        user_exists = any(user == username and pwd == apartment_number for user, pwd in credentials)
+
+        if not user_exists:
+                flash("Incorrect username or password.")
+                return redirect(url_for("login"))
+
         user = User(username)
         login_user(user)
         
@@ -224,7 +236,7 @@ def load_team(username):
     return []
 
 def get_storage_client():
-    return storage_client
+    return storage.Client()
 
 def update_excel_file(username,apartment_number ,team,captain_id):
     # Define the Excel file name in the GCS bucket
@@ -245,19 +257,22 @@ def update_excel_file(username,apartment_number ,team,captain_id):
         # If the file does not exist, create a new Excel file
         workbook = openpyxl.Workbook()
         sheet = workbook.active
-        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11", "Apartment Number"])  # Add header row
+        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11", "Captain","Apartment Number"])  # Add header row
     # Prepare the row to be added (username + selected players)
     row = [username]  # Start with the username in the first column
 
     # Add player names to the row
+    captain= ""
     for player in team:
         if str(player["id"]) == str(captain_id):
             row.append(player["name"] + " (C) ")
+            captain=player["name"]
         else:
             row.append(player["name"])
 
     # Append the row to the sheet
-    row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players
+    row.extend([""] * (13 - len(row)))  # Fill remaining columns if fewer than 11 players
+    row.append(captain)
     row.append(apartment_number)  # Add the apartment number as the last column
 
     # Check if an entry for this username and apartment number already exists
@@ -314,6 +329,31 @@ def IsDownTimeReached():
         return False
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+def get_credentials_from_excel():
+    """Fetch username and password from Excel in Google Cloud Storage bucket."""
+    # Initialize a Google Cloud Storage client
+    if is_Cloud :
+     client = get_storage_client()
+     bucket = client.get_bucket(BUCKET_NAME)
+     blob = bucket.blob(USER_TABLE)
+
+    # Download the file content as bytes
+     excel_data = blob.download_as_bytes()
+
+    # Read the Excel file into a pandas DataFrame
+     workbook = openpyxl.load_workbook(io.BytesIO(excel_data))
+     sheet = workbook.active  # Assuming credentials are in the first sheet
+
+     credentials = []
+     for row in sheet.iter_rows(min_row=2, values_only=True):  # Skip the header row
+        username, password = row[:2]  # Assuming 'username' and 'password' are in the first two columns
+        credentials.append((username, password))
+    else :
+     credentials = []
+     credentials.append(("Test", "1234"))
+    return credentials
 
 if __name__ == "__main__":
     app.run(debug=True)
