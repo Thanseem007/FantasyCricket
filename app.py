@@ -255,7 +255,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
         # If the file does not exist, create a new Excel file
         workbook = openpyxl.Workbook()
         sheet = workbook.active
-        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11", "Captain","Apartment Number"])  # Add header row
+        sheet.append(["Username", "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10", "Player 11", "Captain","PIN"])  # Add header row
     # Prepare the row to be added (username + selected players)
     row = [username]  # Start with the username in the first column
 
@@ -269,7 +269,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
             row.append(player["name"])
 
     # Append the row to the sheet
-    row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players
+    #row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players
     row.append(captain)
     row.append(apartment_number)  # Add the apartment number as the last column
 
