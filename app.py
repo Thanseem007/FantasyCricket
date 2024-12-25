@@ -93,7 +93,6 @@ def logout():
 
 @app.route("/server_down")
 def server_down():
-    print (123)
     return render_template("server_down.html")
 
 @app.route("/select/<int:player_id>")
@@ -270,7 +269,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
             row.append(player["name"])
 
     # Append the row to the sheet
-    row.extend([""] * (13 - len(row)))  # Fill remaining columns if fewer than 11 players
+    row.extend([""] * (12 - len(row)))  # Fill remaining columns if fewer than 11 players
     row.append(captain)
     row.append(apartment_number)  # Add the apartment number as the last column
 
