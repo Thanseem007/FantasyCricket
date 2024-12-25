@@ -58,15 +58,13 @@ def index():
 @app.route("/" , methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
-        apartment_number = request.form["apartment_number"]
+        username = str(request.form["username"])
+        apartment_number = str(request.form["apartment_number"])
           
         # Fetch credentials from the Excel file
         credentials = get_credentials_from_excel()
-
         # Check if the username and password exist
-        user_exists = any(user == username and pwd == apartment_number for user, pwd in credentials)
-
+        user_exists = any(str(user).lower() == username.lower() and str(pwd) == apartment_number for user, pwd in credentials)
         if not user_exists:
                 flash("Incorrect username or PIN.", category="error")
                 return redirect(url_for("login"))
@@ -351,8 +349,12 @@ def get_credentials_from_excel():
         username, password = row[:2]  # Assuming 'username' and 'password' are in the first two columns
         credentials.append((username, password))
     else :
+     wb = openpyxl.load_workbook(USER_TABLE)
+     sheet = wb.active
      credentials = []
-     credentials.append(("Test", "1234"))
+     for row in sheet.iter_rows(min_row=2, values_only=True):  # Skip the header row
+        username, password = row[:2]  # Assuming 'username' and 'password' are in the first two columns
+        credentials.append((username, password))
     return credentials
 
 if __name__ == "__main__":
