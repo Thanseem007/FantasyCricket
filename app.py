@@ -68,7 +68,7 @@ def login():
         user_exists = any(user == username and pwd == apartment_number for user, pwd in credentials)
 
         if not user_exists:
-                flash("Incorrect username or password.")
+                flash("Incorrect username or PIN.", category="error")
                 return redirect(url_for("login"))
 
         user = User(username)
