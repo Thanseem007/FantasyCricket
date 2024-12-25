@@ -1,493 +1,213 @@
 [{
     "id": 1,
-    "name": " Saptarshi Dutta  Choudhury",
-    "price": 7,
+    "name": " Adithya  K S",
+    "price": 6,
     "role": " AllRounder",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/2243054\/Adithya-K-S",
     "IsCaptain": 0
    },
    {
     "id": 2,
-    "name": " Vinoth  S P",
-    "price": 7,
-    "role": " AllRounder",
-    "playerlink": 1,
+    "name": " Ajuvinse .",
+    "price": 14,
+    "role": " Wicketkeeper-Batsman",
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/22126194\/Ajuvinse",
     "IsCaptain": 0
    },
    {
     "id": 3,
-    "name": " Adithya  K S",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 4,
-    "name": " Mohan  Rajkumar",
-    "price": 10,
-    "role": " Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 5,
-    "name": " Rajesh  Menon",
-    "price": 8,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/22294640\/rajesh-menon\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 6,
-    "name": " Mohamed  Mazher",
-    "price": 8,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 7,
-    "name": " Lenin .",
-    "price": 7.5,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16645940\/lenin\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 8,
-    "name": " Tamil Selvan .",
-    "price": 8,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16087336\/tamil-selvan\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 9,
-    "name": " Gaurav .",
-    "price": 9,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 10,
-    "name": " Amit chandra .",
-    "price": 8.5,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/18104734\/amit-chandra\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 11,
-    "name": " Ashish  Dhyani",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 12,
-    "name": " Arun Lakhs .",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/22123539\/arun-l\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 13,
-    "name": " Ramesh .",
-    "price": 7,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 14,
-    "name": " Vinoth .",
-    "price": 7,
-    "role": " Wicketkeeper-Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 15,
-    "name": " ChandraPrakash V",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084684\/chandraprakash-v\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 16,
-    "name": " Badri Narayanan R",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 17,
-    "name": " Sujith Sasidharan Nair .",
-    "price": 10,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/1472372\/sujith-sasidharan-nair\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 18,
-    "name": " Sujith Chandrasekharan .",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 19,
-    "name": " Senthilraj R .",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085030\/senthilraj\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 20,
-    "name": " Ramke .",
-    "price": 11,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/2281725\/ramke\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 21,
-    "name": " Umanath .",
-    "price": 8.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085042\/umanath-p\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 22,
-    "name": " SRINIVASAN. M .",
-    "price": 9.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 23,
-    "name": " Bharath Kumar .",
-    "price": 7,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16183804\/bharath\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 24,
-    "name": " Thanseem nazar .",
-    "price": 10.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/3499028\/thanseem\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 25,
-    "name": " Elan .",
-    "price": 7,
-    "role": " Wicketkeeper-Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 26,
-    "name": " Udhay .",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 27,
-    "name": " Akash  N S",
-    "price": 8.5,
+    "name": "Akash",
+    "price": 12,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22038588\/akash\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 28,
-    "name": " Ravish Choudhary .",
-    "price": 7,
+    "id": 4,
+    "name": " Amit chandra .",
+    "price": 12,
     "role": " Batsman",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/18104734\/amit-chandra\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 29,
-    "name": " Praveen Kumar .",
-    "price": 7.5,
+    "id": 5,
+    "name": "Arun L",
+    "price": 2.5,
     "role": " Batsman",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/22123539\/arun-l\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 30,
-    "name": " Janardhan g .",
-    "price": 10.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/31119244\/janardhan-pcy\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 31,
-    "name": " Dipuraj .",
-    "price": 9,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 32,
-    "name": " Pravin r .",
-    "price": 7,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 33,
-    "name": " Pradeep  Elijah J",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/4566833\/pradeep-elijah-j\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 34,
-    "name": " Rocky .",
-    "price": 7,
-    "role": " Wicketkeeper-Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 35,
-    "name": " Vijay S",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 36,
-    "name": " Jeneesh kumar K.s",
-    "price": 7,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 37,
-    "name": " Sabareesh S",
-    "price": 10.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 38,
-    "name": " Pradeepkumar .",
-    "price": 8.5,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/2552013\/pradi\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 39,
-    "name": " Ashok Rajini .",
+    "id": 6,
+    "name": " Arunagiri  Dhanapal",
     "price": 8,
     "role": " AllRounder",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/18119452\/Arun",
     "IsCaptain": 0
    },
    {
-    "id": 40,
-    "name": " Dhanraj Rathinam .",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/23502372\/dhanraj\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 41,
-    "name": " Karthik Nair .",
-    "price": 10,
+    "id": 7,
+    "name": " Ashish  Dhyani",
+    "price": 6,
     "role": " AllRounder",
-    "playerlink": 1,
+    "playerlink": "No profile found - profile deleted",
     "IsCaptain": 0
    },
    {
-    "id": 42,
-    "name": " Ragul .",
-    "price": 7.5,
-    "role": " Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 43,
-    "name": " Vipin .",
+    "id": 8,
+    "name": " Ashok Rajini .",
     "price": 9,
     "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084562\/vipin-m\/stats",
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/2099175\/Rajini-Ashok",
     "IsCaptain": 0
    },
    {
-    "id": 44,
-    "name": " Rees Emmanuel .",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/14732362\/rees-emmanuel\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 45,
-    "name": " Dinesh Thillaiyappan .",
-    "price": 8.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 46,
-    "name": " VS Alexander .",
-    "price": 7,
-    "role": " Wicketkeeper-Batsman",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 47,
-    "name": " Sankaran .",
-    "price": 7,
+    "id": 9,
+    "name": " B Deepan Raj .",
+    "price": 3,
     "role": " Batsman",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/18108669\/sankaran\/stats",
+    "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 48,
-    "name": " Barath Ram  Rajendran",
-    "price": 9,
+    "id": 10,
+    "name": " Badri Narayanan R",
+    "price": 4,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/15730850\/Badri",
+    "IsCaptain": 0
+   },
+   {
+    "id": 11,
+    "name": " BarathRam R",
+    "price": 16,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16371098\/barathram-r\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 49,
-    "name": " Arunagiri  Dhanapal",
-    "price": 8,
+    "id": 12,
+    "name": " Bharath",
+    "price": 3.5,
     "role": " AllRounder",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16183804\/bharath\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 50,
-    "name": " Yogaraj .",
-    "price": 11,
-    "role": " AllRounder",
-    "playerlink": 1,
+    "id": 13,
+    "name": " Chandraprakash V",
+    "price": 2,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084684\/chandraprakash-v\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 51,
-    "name": " Dharma .",
-    "price": 8,
+    "id": 14,
+    "name": " Dhanraj",
+    "price": 2.5,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/23502372\/dhanraj\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 15,
+    "name": " Dharma",
+    "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/3049211\/dharma\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 52,
-    "name": " RamNarayan .",
-    "price": 7,
-    "role": " Bowler",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/32480519\/k-a-ramnarayan\/stats",
+    "id": 16,
+    "name": " Dinesh",
+    "price": 12,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/16183806\/Dinesh ",
     "IsCaptain": 0
    },
    {
-    "id": 53,
-    "name": " Ritesh .",
-    "price": 7,
+    "id": 17,
+    "name": " Dipuraj .",
+    "price": 14,
     "role": " AllRounder",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 54,
-    "name": " B Deepan Raj .",
-    "price": 7,
-    "role": " Batsman",
-    "playerlink": 1,
+    "id": 18,
+    "name": " Elan",
+    "price": 3,
+    "role": " Wicketkeeper-Batsman",
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/19483168\/Elan ",
     "IsCaptain": 0
    },
    {
-    "id": 55,
-    "name": " Saravanan S .",
-    "price": 7,
+    "id": 19,
+    "name": " Gaurav Bhondele",
+    "price": 14,
     "role": " AllRounder",
-    "playerlink": 1,
+    "playerlink": "https:\/\/cricheroes.in\/player-profile\/26633362\/Gaurav-Bhondele ",
     "IsCaptain": 0
    },
    {
-    "id": 56,
-    "name": " SriNaguru Kumar .",
-    "price": 8.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16004632\/srinaguru-kumar\/stats",
-    "IsCaptain": 0
-   },
-   {
-    "id": 57,
-    "name": " V. N. Sethuraman .",
-    "price": 7.5,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 58,
-    "name": " Sathish kumar Appadurai .",
-    "price": 8,
-    "role": " AllRounder",
-    "playerlink": 1,
-    "IsCaptain": 0
-   },
-   {
-    "id": 59,
-    "name": " Gokul Ravi .",
-    "price": 8,
+    "id": 20,
+    "name": "Gokul Ravi",
+    "price": 9,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16086117\/gokul-ravi\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 60,
-    "name": " Sreenath .",
-    "price": 9.5,
-    "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16481745\/sreenath\/stats",
+    "id": 21,
+    "name": " Jai",
+    "price": 6,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16273354\/jai",
     "IsCaptain": 0
    },
    {
-    "id": 61,
-    "name": " Srikanth maddu .",
-    "price": 7,
+    "id": 22,
+    "name": " Janardhan g .",
+    "price": 26,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/31119244\/janardhan-pcy\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 23,
+    "name": " Jeneesh kumar K.s",
+    "price": 2,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 24,
+    "name": " Karthik .",
+    "price": 3,
     "role": " Batsman",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 62,
+    "id": 25,
+    "name": " Karthik Nair .",
+    "price": 22,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 26,
+    "name": " Lenin .",
+    "price": 4.5,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16645940\/lenin\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 27,
     "name": " Manoj Kumar M .",
     "price": 8,
     "role": " AllRounder",
@@ -495,81 +215,385 @@
     "IsCaptain": 0
    },
    {
-    "id": 63,
-    "name": " Karthik .",
-    "price": 7,
+    "id": 28,
+    "name": " Mohamed  Mazher",
+    "price": 10,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 29,
+    "name": " Mohan  Rajkumar",
+    "price": 22,
     "role": " Batsman",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 64,
-    "name": " Vissu .",
-    "price": 8,
+    "id": 30,
+    "name": " Pradeep  Elijah J",
+    "price": 3,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/4566833\/pradeep-elijah-j\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 31,
+    "name": " Pradeepkumar .",
+    "price": 12,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/2552013\/pradi\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 32,
+    "name": " Praveen Kumar .",
+    "price": 4,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 33,
+    "name": " Pravin r .",
+    "price": 2,
     "role": " AllRounder",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 65,
-    "name": " Sukhpreet Singh .",
-    "price": 7,
+    "id": 34,
+    "name": " Ragul .",
+    "price": 4,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 35,
+    "name": " Rajesh  Menon",
+    "price": 10,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/22294640\/rajesh-menon\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 36,
+    "name": " Ramesh .",
+    "price": 2.5,
     "role": " AllRounder",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 66,
-    "name": " Ajuvinse .",
-    "price": 9,
+    "id": 37,
+    "name": " Ramke .",
+    "price": 28,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/2281725\/ramke\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 38,
+    "name": " RamNarayan .",
+    "price": 2.5,
+    "role": " Bowler",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/32480519\/k-a-ramnarayan\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 39,
+    "name": " Ravish Choudhary .",
+    "price": 2,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 40,
+    "name": " Rees Emmanuel .",
+    "price": 4,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/14732362\/rees-emmanuel\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 41,
+    "name": " Ritesh .",
+    "price": 3,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 42,
+    "name": " Rocky .",
+    "price": 2,
     "role": " Wicketkeeper-Batsman",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 67,
-    "name": "Jerome Joseph",
-    "price": 7,
+    "id": 43,
+    "name": " Sabareesh S",
+    "price": 26,
     "role": " AllRounder",
-    "playerlink": "https:\/\/cricheroes.com\/player-profile\/33093897\/jerome-joseph\/stats",
+    "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 68,
-    "name": "Prakash Burra",
+    "id": 44,
+    "name": " Sankaran .",
+    "price": 3,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/18108669\/sankaran\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 45,
+    "name": " Saptarshi Dutta  Choudhury",
+    "price": 3.5,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 46,
+    "name": " Saravanan S .",
+    "price": 2.5,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 47,
+    "name": " Sathish kumar Appadurai .",
     "price": 7,
     "role": " AllRounder",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 69,
-    "name": "Parthiban K",
-    "price": 7,
+    "id": 48,
+    "name": " Senthilraj R .",
+    "price": 5,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085030\/senthilraj\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 49,
+    "name": " Sreenath .",
+    "price": 18,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16481745\/sreenath\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 50,
+    "name": " Srikanth maddu .",
+    "price": 2,
     "role": " Batsman",
     "playerlink": 1,
     "IsCaptain": 0
    },
    {
-    "id": 70,
-    "name": "Nishant S",
-    "price": 7,
+    "id": 51,
+    "name": " SriNaguru Kumar .",
+    "price": 12,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16004632\/srinaguru-kumar\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 52,
+    "name": " SRINIVASAN. M .",
+    "price": 18,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 53,
+    "name": " Sujith Chandrasekharan .",
+    "price": 2,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 54,
+    "name": " Sujith Sasidharan Nair .",
+    "price": 22,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/1472372\/sujith-sasidharan-nair\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 55,
+    "name": " Sukhpreet Singh .",
+    "price": 2.5,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 56,
+    "name": "Tamil Selvan",
+    "price": 9,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16087336\/tamil-selvan\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 57,
+    "name": "Thanseem",
+    "price": 24,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/3499028\/thanseem\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 58,
+    "name": "Uday kumar",
+    "price": 4,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/21473981\/uday-kumar",
+    "IsCaptain": 0
+   },
+   {
+    "id": 59,
+    "name": "Umanath P",
+    "price": 12,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085042\/umanath-p\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 60,
+    "name": "V N Sethuraman",
+    "price": 4,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/22717618\/v-n-sethuraman",
+    "IsCaptain": 0
+   },
+   {
+    "id": 61,
+    "name": " Vijay S",
+    "price": 2,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 62,
+    "name": " Vinoth  S P",
+    "price": 2.5,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 63,
+    "name": "Vinoth P",
+    "price": 2,
+    "role": " Wicketkeeper-Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16014776\/vinoth-p",
+    "IsCaptain": 0
+   },
+   {
+    "id": 64,
+    "name": "Vipin M",
+    "price": 14,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084562\/vipin-m\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 65,
+    "name": "Vissu",
+    "price": 9,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/15260164\/vissu",
+    "IsCaptain": 0
+   },
+   {
+    "id": 66,
+    "name": "V S Alexander",
+    "price": 3,
+    "role": " Wicketkeeper-Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/16089575\/v-s-alexander-(wk)",
+    "IsCaptain": 0
+   },
+   {
+    "id": 67,
+    "name": "Yogaraj",
+    "price": 28,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/9983668\/yogaraj",
+    "IsCaptain": 0
+   },
+   {
+    "id": 68,
+    "name": "Jerome Joseph",
+    "price": 2,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/33093897\/jerome-joseph\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 69,
+    "name": "Nishanth S",
+    "price": 16,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/21947001\/nishanth-s\/stats",
     "IsCaptain": 0
    },
    {
+    "id": 70,
+    "name": "Parthiban K",
+    "price": 2,
+    "role": " Batsman",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
     "id": 71,
-    "name": "Rahul",
-    "price": 7,
+    "name": "Prakash Burra",
+    "price": 2,
+    "role": " AllRounder",
+    "playerlink": 1,
+    "IsCaptain": 0
+   },
+   {
+    "id": 72,
+    "name": "RAHUL",
+    "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/1264183\/rahul\/stats",
     "IsCaptain": 0
    },
    {
-    "id": 72,
-    "name": "YesKay Durai",
-    "price": 7,
+    "id": 73,
+    "name": "RAM KUMAR",
+    "price": 6,
+    "role": " Batsman",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/26631366\/ram-kumar",
+    "IsCaptain": 0
+   },
+   {
+    "id": 74,
+    "name": "Vijay Surya S",
+    "price": 32,
+    "role": " AllRounder",
+    "playerlink": "https:\/\/cricheroes.com\/player-profile\/592213\/vijay-surya-s-(c)\/stats",
+    "IsCaptain": 0
+   },
+   {
+    "id": 75,
+    "name": "YesKay durai",
+    "price": 20,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/2158561\/yeskay-durai\/stats",
     "IsCaptain": 0
