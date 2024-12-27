@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash,send_file
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user 
 from google.cloud import storage
 import openpyxl
@@ -11,6 +11,8 @@ import traceback
 import logging
 from cloud_logger import CloudLogger
 from cloud_logger import setup_logger
+from io import StringIO
+from datetime import datetime, timedelta
 
 BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
@@ -229,6 +231,36 @@ def Send_Credentials():
         return jsonify(results)
     except Exception as e:
         return jsonify({"error": str(e)})
+
+
+@app.route('/download_team', methods=['POST'])
+def download_team():
+    # Get the team data from the request
+    data = request.get_json()
+    team = data.get('team', [])
+
+    if not team:
+        return jsonify({"error": "No team data provided"}), 400
+
+    # Create a StringIO object to store the text data
+    output = StringIO()
+    utc_now = datetime.utcnow()
+    # Manually adjust the time to IST (UTC + 5:30)
+    ist_now = utc_now + timedelta(hours=5, minutes=30)
+    timestamp = ist_now.strftime("%Y-%m-%d %H:%M:%S")
+    output.write(f"Team generated on: {timestamp}\n\n") 
+    # Write player names to the StringIO object
+    for player in team:
+        if player.IsCaptain == 1 :
+          output.write(player['name'] + '(C) \n')
+        else :
+          output.write(player['name'] + '\n')
+    # Set the cursor to the beginning of the file
+    output.seek(0)
+    
+
+    # Send the file as a response
+    return send_file(output, as_attachment=True, download_name="team_members.txt", mimetype="text/plain")
 
 # Helper Functions
 def save_team(username, team):

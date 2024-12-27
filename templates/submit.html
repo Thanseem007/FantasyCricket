@@ -29,7 +29,10 @@
         </li>
         {% endfor %}
     </ul>
-
+    
+    <div class="mt-4 text-center">
+        <button class="btn btn-success btn-lg" onclick="downloadTeam()">Download Team as Text File</button>
+    </div>
     <!-- Button to go back to the homepage -->
     <div class="mt-4">
         <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back</a>
@@ -43,3 +46,38 @@
 
 </body>
 </html>
+
+<script>
+    function downloadTeam() {
+        // Gather team data (assuming you have player data rendered in a JavaScript-friendly format)
+        let team = [
+            {% for player in team %}
+            {
+                "name": "{{ player.name }}",
+                "role": "{{ player.role }}",
+                "IsCaptain": {{ player.IsCaptain }}
+            },
+            {% endfor %}
+        ];
+
+        // Send data to Flask API via AJAX (POST request)
+        fetch("{{ url_for('download_team') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ team: team })  // Send team as JSON
+        })
+        .then(response => response.blob())  // Get the response as a blob (file)
+        .then(blob => {
+            // Create a link to trigger the download
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'team_members.txt';  // Set the default download name
+            link.click();  // Trigger the download
+        })
+        .catch(error => {
+            console.error("Error downloading the team:", error);
+        });
+    }
+</script>
