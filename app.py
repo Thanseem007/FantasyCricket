@@ -141,33 +141,21 @@ def remove_player(player_id):
 @login_required
 def submit_team():
     username = current_user.id
-    app.logger.info("Submitting team "+username)
-    if IsDownTimeReached() :
+    app.logger.info(f"Submitting team for user {username}")
+    try:
+      if IsDownTimeReached() :
             return redirect(url_for("server_down"))
-    username = current_user.id
-    apartment_number = user_apartments.get(username, "unknown")
-    team = load_team(username)
+      username = current_user.id
+      apartment_number = user_apartments.get(username, "unknown")
+      team = load_team(username)
     
-    captain_id = request.form.get('captain_id')
-    # Create the file content (team in .txt format)
-    # file_content = ""
-    # for player in team:
-    #     file_content += f"{player['name']} - {player['role']}\n"
-
-    # # Save the team to Google Cloud Storage
-    # filename = f"{username}_{apartment_number}.txt"
-    
-    # # Initialize the storage client and get the bucket
-    # client = get_storage_client()
-    # bucket = client.bucket(BUCKET_NAME)
-    
-    # # Create a blob object in the bucket and upload the content
-    # blob = bucket.blob(filename)
-    # blob.upload_from_string(file_content)
-    
-    # # Return the filename or the URL of the file
+      captain_id = request.form.get('captain_id')
     # file_url = blob.public_url  # Make the file publicly accessible
-    file_url = update_excel_file(username, apartment_number,team,captain_id)  
+      file_url = update_excel_file(username, apartment_number,team,captain_id) 
+      app.logger.info(f"Team submitted successfully for user {username}.") 
+    except Exception as e:
+       app.logger.error(f"Error occurred while submitting team for user {username}: {str(e)}")
+       return render_template("error.html", error_message="An unexpected error occurred. Please try again later.")
     return render_template("submit.html", team=team)
 
 @app.route('/update_captain/<int:player_id>', methods=['POST'])

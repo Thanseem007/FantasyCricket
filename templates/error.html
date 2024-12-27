@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Submitted</title>
+    <title>Error - Team Submission</title>
     <!-- Bootstrap for quick styling -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -11,28 +11,25 @@
 <body>
 
 <div class="container mt-5">
-    <!-- Success message -->
-    <div class="alert alert-success">
-        <h1>Team Submitted Successfully!</h1>
+    <!-- Error message -->
+    <div class="alert alert-danger">
+        <h1>Oops! Something Went Wrong</h1>
     </div>
 
-    <!-- Display Team Members -->
-    <h2>Your Selected Team:</h2>
-    <ul class="list-group">
-        {% for player in team %}
-        <li class="list-group-item">
-            {{ player.name }}
-            {% if player.IsCaptain == 1 %}
-            <span class="badge badge-primary">(C)</span>
-            {% endif %}
-            - {{ player.role }}
-        </li>
-        {% endfor %}
-    </ul>
+    <!-- Error description -->
+    <h2>We were unable to submit your team at this time.</h2>
+    <p>Please try again later or contact support if the issue persists.</p>
+
+    <!-- Optional error message passed from Flask -->
+    {% if error_message %}
+    <div class="alert alert-warning">
+        <strong>Error Details:</strong> {{ error_message }}
+    </div>
+    {% endif %}
 
     <!-- Button to go back to the homepage -->
     <div class="mt-4">
-        <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back to Homepage</a>
     </div>
 </div>
 
