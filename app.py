@@ -10,6 +10,7 @@ from flask import jsonify
 import traceback
 import logging
 from cloud_logger import CloudLogger
+from cloud_logger import setup_logger
 
 BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
@@ -37,6 +38,7 @@ if is_Cloud :
    cloud_logger.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 
    # Add the CloudLogger handler to the Flask app's logger
+   app.logger = setup_logger()
    app.logger.addHandler(cloud_logger)
    app.logger.setLevel(logging.INFO)
    app.logger.info("Hello world endpoint hit.")

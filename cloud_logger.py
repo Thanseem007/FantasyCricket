@@ -1,6 +1,6 @@
 import logging
 from google.cloud import storage
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,timezone
 
 class CloudLogger(logging.Handler):
     def __init__(self, bucket_name, log_file_name):
@@ -35,3 +35,30 @@ class CloudLogger(logging.Handler):
     def _write_logs(self, logs):
         # Upload the updated logs to Google Cloud Storage
         self.blob.upload_from_string(logs)
+
+
+
+# Custom formatter to display IST timestamps
+class ISTFormatter(logging.Formatter):
+    def formatTime(self, record, datefmt=None):
+        # IST is UTC+5:30
+        IST = timezone(timedelta(hours=5, minutes=30))
+        # Convert the record's timestamp to IST
+        record_time = datetime.fromtimestamp(record.created, tz=IST)
+        return record_time.strftime(datefmt or "%Y-%m-%d %H:%M:%S")
+
+# Function to initialize the logger
+def setup_logger():
+    logger = logging.getLogger("flask_app_logger")
+    logger.setLevel(logging.INFO)
+    
+    # Set up logging to a file or stream
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.INFO)
+    
+    # Use the ISTFormatter for consistent timestamp formatting
+    formatter = ISTFormatter(fmt="%(asctime)s - %(levelname)s - %(message)s")
+    handler.setFormatter(formatter)
+    
+    logger.addHandler(handler)
+    return logger
