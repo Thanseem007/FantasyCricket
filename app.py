@@ -248,13 +248,14 @@ def download_team():
     # Manually adjust the time to IST (UTC + 5:30)
     ist_now = utc_now + timedelta(hours=5, minutes=30)
     timestamp = ist_now.strftime("%Y-%m-%d %H:%M:%S")
-    output.write(f"Team generated on: {timestamp}\n\n") 
+    # Write timestamp to the output (in binary format, using encode)
+    output.write(f"Team generated on: {timestamp}\n\n".encode('utf-8')) 
     # Write player names to the StringIO object
     for player in team:
         if player['IsCaptain'] == 1 :
-          output.write(player['name'] + '(C) \n')
+          output.write((player['name'] + '(C) \n').encode('utf-8'))
         else :
-          output.write(player['name'] + '\n')
+          output.write((player['name'] + '\n').encode('utf-8'))
     # Set the cursor to the beginning of the file
     output.seek(0)
     
