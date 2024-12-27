@@ -251,7 +251,7 @@ def download_team():
     output.write(f"Team generated on: {timestamp}\n\n") 
     # Write player names to the StringIO object
     for player in team:
-        if player.IsCaptain == 1 :
+        if player['IsCaptain'] == 1 :
           output.write(player['name'] + '(C) \n')
         else :
           output.write(player['name'] + '\n')
