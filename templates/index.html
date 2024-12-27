@@ -214,7 +214,7 @@
         <h1>Welcome, {{ current_user.id }}</h1>
         <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
     </header>
-    <h2>Budget Remaining: ₹{{ budget }}</h2>
+    <h2>Budget Remaining:  {{ budget }} Pts</h2>
     <div class="counter">
         Players Selected: <span id="players-selected">{{ team|length }}</span> / 11
     </div>
@@ -230,8 +230,13 @@
                     <a class="player-link" href=" {{player.playerlink }}" target="_blank">
                         {{ player.name }}
                     </a> 
-                    ({{ player.role }}) - ₹{{ player.price }}
+                    ({{ player.role }})
+                    {% if player.team_name %}
+                <span class="team-name">{{ player.team_name }}</span>
+                {% endif %} 
+                -  {{ player.price }} Pts
                 </span>
+                
                 {% if player in team %}
                 <button class="disabled select-btn">Selected</button>
                 {% else %}
@@ -251,7 +256,11 @@
             <ul id="team-list">
                 {% for player in team %}
                 <li>
-                    {{ player.name }} ({{ player.role }}) - ₹{{ player.price }}
+                    {{ player.name }} ({{ player.role }})   
+                    {% if player.team_name %}
+                    <span class="team-name">{{ player.team_name }}</span>
+                    {% endif %} 
+                    -  {{ player.price }} Pts
                     <label class="captain-label">
                         <div class="actions">
                         <input 

@@ -4,311 +4,350 @@
     "price": 6,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/2243054\/Adithya-K-S",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 14,
+    "id": 2,
     "name": "Ajuvinse",
     "price": 14,
     "role": " Wicketkeeper-Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/22126194\/Ajuvinse",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
-    "id": 15,
+    "id": 3,
     "name": "Akash",
     "price": 12,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22038588\/akash\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 16,
+    "id": 4,
     "name": "Amit Chandra",
     "price": 12,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18104734\/amit-chandra\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 17,
+    "id": 5,
     "name": "Arun L",
     "price": 2.5,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22123539\/arun-l\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
-    "id": 2,
+    "id": 6,
     "name": "Arunagiri  Dhanapal",
     "price": 8,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/18119452\/Arun",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 18,
+    "id": 7,
     "name": "Ashish Dhyani",
     "price": 6,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/34089493\/ashish-dhyani",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 19,
+    "id": 8,
     "name": "Badri",
     "price": 4,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/15730850\/Badri",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
-    "id": 20,
+    "id": 9,
     "name": "BarathRam R",
     "price": 16,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16371098\/barathram-r\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 3,
+    "id": 10,
     "name": "Bharath",
     "price": 3.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16183804\/bharath\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 4,
+    "id": 11,
     "name": "Chandraprakash V",
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084684\/chandraprakash-v\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
-    "id": 21,
+    "id": 12,
     "name": "Deepan Raj",
     "price": 3,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/18346145\/Deepan-Raj",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 5,
+    "id": 13,
     "name": "Dhanraj",
     "price": 2.5,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/23502372\/dhanraj\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
-    "id": 6,
+    "id": 14,
     "name": "Dharma",
     "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/3049211\/dharma\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 7,
+    "id": 15,
     "name": "Dinesh",
     "price": 12,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/16183806\/Dinesh ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 8,
+    "id": 16,
     "name": "Dipuraj",
     "price": 14,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/16092069\/Dipuraj",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 9,
+    "id": 17,
     "name": "Elan",
     "price": 3,
     "role": " Wicketkeeper-Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/19483168\/Elan ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 10,
+    "id": 18,
     "name": "Gaurav Bhondele",
     "price": 14,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/26633362\/Gaurav-Bhondele ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 22,
+    "id": 19,
     "name": "Gokul Ravi",
     "price": 9,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16086117\/gokul-ravi\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
-    "id": 11,
+    "id": 20,
     "name": "Jai",
     "price": 6,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16273354\/jai",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 23,
+    "id": 21,
     "name": "Janardhan Pcy",
     "price": 26,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/31119244\/Janardhan-Pcy",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 24,
+    "id": 22,
     "name": "Jerome Joseph",
     "price": 2,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/33093897\/jerome-joseph\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
-    "id": 25,
+    "id": 23,
     "name": "K A Ramnarayan",
     "price": 2.5,
     "role": " Bowler",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/32480519\/k-a-ramnarayan\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 26,
+    "id": 24,
     "name": "Karthik Muthuvali",
     "price": 3,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18105338\/Karthik-Muthuvali\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
-    "id": 27,
+    "id": 25,
     "name": "Karthik Nair",
     "price": 22,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/9396551\/karthik-nair",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
-    "id": 28,
+    "id": 26,
     "name": "Lenin",
     "price": 4.5,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16645940\/lenin\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 29,
+    "id": 27,
     "name": "Manoj Kumar M",
     "price": 8,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18346116\/Manoj-Kumar-M\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
-    "id": 30,
+    "id": 28,
     "name": "Mazher",
     "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22723114\/Mazher\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 31,
+    "id": 29,
     "name": "Mohan raj",
     "price": 22,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084890\/Mohan-raj\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
-    "id": 32,
+    "id": 30,
     "name": "Nishanth S",
     "price": 16,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/21947001\/nishanth-s\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
-    "id": 33,
+    "id": 31,
     "name": "Parthiban K",
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/27373129\/parthiban-k",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
-    "id": 12,
+    "id": 32,
     "name": "Pradeep  Elijah J",
     "price": 3,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/4566833\/pradeep-elijah-j\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 34,
+    "id": 33,
     "name": "Pradi",
     "price": 12,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/2552013\/pradi\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
-    "id": 35,
+    "id": 34,
     "name": "PRAKASH BURRA",
     "price": 2,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18601377\/prakash-burra",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
-    "id": 36,
+    "id": 35,
     "name": "Praveen Kumar",
     "price": 4,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/14360107\/Praveen-Kumar\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 37,
+    "id": 36,
     "name": "Praveen paulraj PCY",
     "price": 2,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/26633391\/Praveen-paulraj-PCY\/",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 38,
+    "id": 37,
     "name": "Ragul Srinivasan",
     "price": 4,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/31119601\/ragul-srinivasan",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
-    "id": 39,
+    "id": 38,
     "name": "RAHUL",
     "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/1264183\/rahul\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
-    "id": 13,
+    "id": 39,
     "name": "Rajesh  Menon",
     "price": 10,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22294640\/rajesh-menon\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
     "id": 40,
@@ -316,7 +355,8 @@
     "price": 9,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/2099175\/Rajini-Ashok",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
     "id": 41,
@@ -324,7 +364,8 @@
     "price": 6,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/26631366\/ram-kumar",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
     "id": 42,
@@ -332,7 +373,8 @@
     "price": 2.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/11949059\/ramesh",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 43,
@@ -340,7 +382,8 @@
     "price": 28,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/2281725\/ramke\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 44,
@@ -348,7 +391,8 @@
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/2258584\/ravish",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
     "id": 45,
@@ -356,7 +400,8 @@
     "price": 4,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/14732362\/rees-emmanuel\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 46,
@@ -364,7 +409,8 @@
     "price": 3,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16175718\/ritesh-g",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 47,
@@ -372,7 +418,8 @@
     "price": 2,
     "role": " Wicketkeeper-Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/5172956\/rocky",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
     "id": 48,
@@ -380,7 +427,8 @@
     "price": 26,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/3026588\/sabareesh-s",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
     "id": 49,
@@ -388,7 +436,8 @@
     "price": 3,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18108669\/sankaran\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 50,
@@ -396,7 +445,8 @@
     "price": 3.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/34718181\/saptarshi-dutta-choudhury",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
     "id": 51,
@@ -404,7 +454,8 @@
     "price": 2.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/3382980\/Saravanan ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 52,
@@ -412,7 +463,8 @@
     "price": 7,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/5230479\/Sathish ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 53,
@@ -420,7 +472,8 @@
     "price": 5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085030\/senthilraj\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 54,
@@ -428,7 +481,8 @@
     "price": 18,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16481745\/sreenath\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 55,
@@ -436,7 +490,8 @@
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/22122760\/Srikanth ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 56,
@@ -444,7 +499,8 @@
     "price": 12,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16004632\/srinaguru-kumar\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 57,
@@ -452,7 +508,8 @@
     "price": 18,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/27328601\/Srinivasan-M ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 58,
@@ -460,7 +517,8 @@
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/22717609\/Sujith-Chandrasekharan ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 59,
@@ -468,7 +526,8 @@
     "price": 22,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/1472372\/sujith-sasidharan-nair\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 60,
@@ -476,7 +535,8 @@
     "price": 2.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/20925715\/Sukhpreet-Singh ",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 61,
@@ -484,7 +544,8 @@
     "price": 9,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16087336\/tamil-selvan\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
     "id": 62,
@@ -492,7 +553,8 @@
     "price": 24,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/3499028\/thanseem\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
     "id": 63,
@@ -500,7 +562,8 @@
     "price": 4,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/21473981\/uday-kumar",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THAILAND THUGS"
    },
    {
     "id": 64,
@@ -508,7 +571,8 @@
     "price": 12,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16085042\/umanath-p\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 65,
@@ -516,7 +580,8 @@
     "price": 4,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22717618\/v-n-sethuraman",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 66,
@@ -524,7 +589,8 @@
     "price": 3,
     "role": " Wicketkeeper-Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16089575\/v-s-alexander-(wk)",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 67,
@@ -532,7 +598,8 @@
     "price": 2,
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/32376972\/vijay-s",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
     "id": 68,
@@ -540,7 +607,8 @@
     "price": 32,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/592213\/vijay-surya-s-(c)\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 69,
@@ -548,7 +616,8 @@
     "price": 2,
     "role": " Wicketkeeper-Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16014776\/vinoth-p",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " GOA (Gumbal of Alaparais)"
    },
    {
     "id": 70,
@@ -556,7 +625,8 @@
     "price": 2.5,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/28619564\/vinoth-s-p",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PONDY PULAINGOS"
    },
    {
     "id": 71,
@@ -564,7 +634,8 @@
     "price": 14,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084562\/vipin-m\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    },
    {
     "id": 72,
@@ -572,7 +643,8 @@
     "price": 9,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/15260164\/vissu",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 73,
@@ -580,7 +652,8 @@
     "price": 20,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/2158561\/yeskay-durai\/stats",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " THE VARKALA KINGS"
    },
    {
     "id": 74,
@@ -588,7 +661,8 @@
     "price": 28,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/9983668\/yogaraj",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " VEGAS VERIYANS"
    },
    {
     "id": 75,
@@ -596,5 +670,6 @@
     "price": 2,
     "role": " AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/17367387\/yuva-k-j",
-    "IsCaptain": 0
+    "IsCaptain": 0,
+    "team_name": " PATTAYA PANGALIS"
    }]
