@@ -17,6 +17,7 @@ USER_TABLE = "userdata.xlsx"
 LOG_FILE_NAME = "log_file.txt"
 
 app = Flask(__name__)
+app.secret_key = "secretkey"  # Replace with a secure key
 
 
 # Configure Flask-Login
