@@ -302,8 +302,9 @@ def update_excel_file(username,apartment_number ,team,captain_id):
 
     # Check if an entry for this username and apartment number already exists
     existing_row = None
+    app.logger.info(f"User {username}.Apartment {apartment_number}") 
     for r_idx, existing_row_data in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
-        if existing_row_data[0] == username and existing_row_data[-1] == apartment_number:
+        if str(existing_row_data[0]) == str(username) and str(existing_row_data[-1]) == str(apartment_number):
             existing_row = r_idx
             break
 
