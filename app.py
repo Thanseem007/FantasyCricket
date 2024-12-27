@@ -11,7 +11,7 @@ import traceback
 import logging
 from cloud_logger import CloudLogger
 from cloud_logger import setup_logger
-from io import StringIO
+from io import BytesIO
 from datetime import datetime, timedelta
 
 BUCKET_NAME = "fantasy_cricket_asia" 
@@ -243,7 +243,7 @@ def download_team():
         return jsonify({"error": "No team data provided"}), 400
 
     # Create a StringIO object to store the text data
-    output = StringIO()
+    output = BytesIO()
     utc_now = datetime.utcnow()
     # Manually adjust the time to IST (UTC + 5:30)
     ist_now = utc_now + timedelta(hours=5, minutes=30)
