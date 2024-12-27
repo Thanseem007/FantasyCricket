@@ -7,7 +7,6 @@ import openpyxl
 from google.cloud import storage
 import io
 from flask import jsonify
-from flask_mail import Mail, Message
 import traceback
 import logging
 from cloud_logger import CloudLogger
@@ -18,16 +17,7 @@ USER_TABLE = "userdata.xlsx"
 LOG_FILE_NAME = "log_file.txt"
 
 app = Flask(__name__)
-app.secret_key = "secretkey"  # Replace with a secure key
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Use your email provider's SMTP server
-app.config['MAIL_PORT'] = 587                # SMTP port for TLS
-app.config['MAIL_USE_TLS'] = True            # Use TLS
-app.config['MAIL_USE_SSL'] = False           # Do not use SSL if using TLS
-app.config['MAIL_USERNAME'] = 'auction.ppl7@gmail.com'  # Replace with your email address
-app.config['MAIL_PASSWORD'] = 'zgpr qpit mttf duif'         # Replace with your email password
-app.config['MAIL_DEFAULT_SENDER'] = 'auction.ppl7@gmail.com'  # Default sender
-app.config['MAIL_MAX_EMAILS'] = None          # Optional: Set a limit on email sending
-mail = Mail(app)
+
 
 # Configure Flask-Login
 login_manager = LoginManager()
@@ -400,90 +390,7 @@ def get_credentials_from_excel():
         credentials.append((username, password))
     return credentials
 
-def createTxt(username,apartment_number,team,filename="team_info.txt"):
-        file_content = f"Username: {username}\nApartment Number: {apartment_number}\n\nTeam Players:\n"
-        for player in team:
-            file_content += f"{player['name']} (ID: {player['id']})\n"
-        
-        # Write content to a text file
-        with open(filename, "w") as file:
-            file.write(file_content)
 
-        return file
-
-def send_mail(file,filename="team_info.txt"):
-    try:
-        # Compose the email
-        msg = Message(
-            subject="Welcome to Fantasy Cricket!",
-            sender=app.config['MAIL_DEFAULT_SENDER'],
-            recipients=["thanseem.nazar@gmail.com"],  # Replace with the recipient's email
-            body="Hello, welcome to Fantasy Cricket! Enjoy building your dream team!"
-        )
-        print(msg)
-        with app.open_resource(filename) as file:
-            msg.attach(filename, "text/plain", file.read())
-        # Send the email
-        mail.send(msg)
-        print(msg)
-        return "Email sent successfully!"
-
-    except Exception as e:
-        error_details = traceback.format_exc()
-        app.logger.error(f"Failed to send email. Exception: {error_details}")
-        return f"Failed to send email: {e}"
-
-def GetMessage(username,password,recipient_mail):
-     print(recipient_mail)
-     msg = Message(
-        subject="Welcome to Fantasy Cricket!",
-        sender=app.config['MAIL_DEFAULT_SENDER'],
-        recipients=[recipient_mail],
-    )
-     msg.html = f"""
-    <html>
-    <body>
-        <div style="text-align: center; font-family: Arial, sans-serif;">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Fantasy_Premier_League_logo.svg/1200px-Fantasy_Premier_League_logo.svg.png" 
-                 alt="Fantasy Premier League Logo" 
-                 style="width: 200px; height: auto; margin-bottom: 20px;">
-                 
-            <h1>Welcome to Fantasy Cricket PPL 7!</h1>
-            <p>Enjoy building your dream team.</p>
-
-            <h2>Your Login Credentials:</h2>
-            <p><strong>Username:</strong> {username}</p>
-            <p><strong>Password:</strong> {password}</p>
-
-            <p>Use these credentials to log in and start creating your team.</p>
-
-            <a href="https://rugged-precept-443504-q5.de.r.appspot.com/" 
-               style="text-decoration: none; color: white; background-color: #0073e6; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
-                Visit Fantasy Premier League
-            </a>
-
-            <p style="margin-top: 20px;">Best regards,</p>
-            <p>Fantasy Cricket Team</p>
-        </div>
-    </body>
-    </html>
-    """
-     return msg
-
-def send(message):
-    try:
-        # Compose the email
-        msg = message
-        
-        # Send the email
-        mail.send(msg)
-        print(msg)
-        return "Email sent successfully!"
-
-    except Exception as e:
-        error_details = traceback.format_exc()
-        app.logger.error(f"Failed to send email. Exception: {error_details}")
-        return f"Failed to send email: {e}"
 
 if __name__ == "__main__":
     app.run(debug=True)
