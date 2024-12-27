@@ -1,5 +1,6 @@
 import logging
 from google.cloud import storage
+from datetime import datetime, timedelta
 
 class CloudLogger(logging.Handler):
     def __init__(self, bucket_name, log_file_name):
@@ -9,7 +10,17 @@ class CloudLogger(logging.Handler):
         self.blob = self.bucket.blob(log_file_name)
 
     def emit(self, record):
-        log_entry = self.format(record) + '\n'
+        # Get the UTC time, and then adjust it to IST (UTC + 5:30)
+        utc_time = datetime.utcnow()
+        ist_time = utc_time + timedelta(hours=5, minutes=30)
+
+        # Format the time in the desired format
+        log_time = ist_time.strftime('%Y-%m-%d %H:%M:%S')
+
+        # Create the log message with the IST timestamp
+        log_entry = f'{log_time} - {self.format(record)}\n'
+
+        # Read current logs from the storage, append new log, and write back
         current_logs = self._read_logs()
         current_logs += log_entry
         self._write_logs(current_logs)
