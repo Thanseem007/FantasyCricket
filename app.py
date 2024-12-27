@@ -139,6 +139,8 @@ def remove_player(player_id):
 @app.route("/submit", methods=["POST"])
 @login_required
 def submit_team():
+    username = current_user.id
+    app.logger.info("Submitting team "+username)
     if IsDownTimeReached() :
             return redirect(url_for("server_down"))
     username = current_user.id
