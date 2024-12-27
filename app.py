@@ -38,6 +38,7 @@ if is_Cloud :
 
    # Add the CloudLogger handler to the Flask app's logger
    app.logger.addHandler(cloud_logger)
+   app.logger.setLevel(logging.INFO)
    app.logger.info("Hello world endpoint hit.")
 
 
