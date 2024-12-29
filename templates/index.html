@@ -199,7 +199,7 @@
             }
 
             .player-item {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .select-btn {
@@ -253,9 +253,9 @@
             <div class="loader-container">
                 <div class="loader" id="loader"></div>
             </div>
-            <ul id="team-list">
+            <ul id="team-list" >
                 {% for player in team %}
-                <li>
+                <li style="font-size: 13px;" >
                     {{ player.name }} ({{ player.role }})   
                     {% if player.team_name %}
                     <span class="team-name">{{ player.team_name }}</span>
