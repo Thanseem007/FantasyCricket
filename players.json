@@ -329,7 +329,7 @@
     "role": " Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/31119601\/ragul-srinivasan",
     "IsCaptain": 0,
-    "team_name": " VV"
+    "team_name": "PP"
    },
    {
     "id": 38,
@@ -401,7 +401,7 @@
     "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/14732362\/rees-emmanuel\/stats",
     "IsCaptain": 0,
-    "team_name": " VV"
+    "team_name": "PP"
    },
    {
     "id": 46,
@@ -416,7 +416,7 @@
     "id": 47,
     "name": "Rocky\n",
     "price": 2,
-    "role": " Wicketkeeper-Batsman",
+    "role": "Batsman(WK)",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/5172956\/rocky",
     "IsCaptain": 0,
     "team_name": "PP"
