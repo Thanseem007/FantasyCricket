@@ -164,9 +164,9 @@ body {
         background-color: #f8f9fa; /* Light gray background */
         color: #0056b3; /* Blue color for the team name */
         font-weight: bold;
-        padding: 3px 8px;
+        
         border-radius: 5px; /* Rounded corners without border */
-        margin: 0 8px; /* Spacing around the team name */
+        /* Spacing around the team name */
         font-size: 0.9rem;
         text-transform: uppercase; /* Capitalize team name */
         display: inline-block; /* Ensures consistent inline alignment */
