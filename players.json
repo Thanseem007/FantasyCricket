@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Ajuvinse",
     "price": 14,
-    "role": " Wicketkeeper-Batsman",
+    "role": "Batsman(Wk)",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/22126194\/Ajuvinse",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -20,7 +20,7 @@
     "id": 3,
     "name": "Akash",
     "price": 12,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22038588\/akash\/stats",
     "IsCaptain": 0,
     "team_name": "TT"
@@ -29,7 +29,7 @@
     "id": 4,
     "name": "Amit Chandra",
     "price": 12,
-    "role": " Batsman",
+    "role": "Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18104734\/amit-chandra\/stats",
     "IsCaptain": 0,
     "team_name": "POP"
@@ -38,7 +38,7 @@
     "id": 5,
     "name": "Arun L",
     "price": 2.5,
-    "role": " Batsman",
+    "role": "Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22123539\/arun-l\/stats",
     "IsCaptain": 0,
     "team_name": "GOA"
@@ -56,7 +56,7 @@
     "id": 7,
     "name": "Ashish Dhyani",
     "price": 6,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/34089493\/ashish-dhyani",
     "IsCaptain": 0,
     "team_name": "POP"
@@ -92,7 +92,7 @@
     "id": 11,
     "name": "Chandraprakash V",
     "price": 2,
-    "role": " Batsman",
+    "role": "Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16084684\/chandraprakash-v\/stats",
     "IsCaptain": 0,
     "team_name": "GOA"
@@ -155,7 +155,7 @@
     "id": 18,
     "name": "Gaurav Bhondele",
     "price": 14,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/26633362\/Gaurav-Bhondele ",
     "IsCaptain": 0,
     "team_name": "POP"
@@ -182,7 +182,7 @@
     "id": 21,
     "name": "Janardhan Pcy",
     "price": 26,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/31119244\/Janardhan-Pcy",
     "IsCaptain": 0,
     "team_name": "TT"
@@ -191,7 +191,7 @@
     "id": 22,
     "name": "Jerome Joseph",
     "price": 2,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/33093897\/jerome-joseph\/stats",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -209,7 +209,7 @@
     "id": 24,
     "name": "Karthik Muthuvali",
     "price": 3,
-    "role": " Batsman",
+    "role": "Batsman",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18105338\/Karthik-Muthuvali\/",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -236,7 +236,7 @@
     "id": 27,
     "name": "Manoj Kumar M",
     "price": 8,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18346116\/Manoj-Kumar-M\/",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -299,7 +299,7 @@
     "id": 34,
     "name": "PRAKASH BURRA",
     "price": 2,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/18601377\/prakash-burra",
     "IsCaptain": 0,
     "team_name": " GOA"
@@ -317,7 +317,7 @@
     "id": 36,
     "name": "Praveen paulraj PCY",
     "price": 2,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/26633391\/Praveen-paulraj-PCY\/",
     "IsCaptain": 0,
     "team_name": "TT"
@@ -344,7 +344,7 @@
     "id": 39,
     "name": "Rajesh  Menon",
     "price": 10,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22294640\/rajesh-menon\/stats",
     "IsCaptain": 0,
     "team_name": "POP"
@@ -398,7 +398,7 @@
     "id": 45,
     "name": "Rees Emmanuel",
     "price": 4,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/14732362\/rees-emmanuel\/stats",
     "IsCaptain": 0,
     "team_name": " VV"
@@ -443,7 +443,7 @@
     "id": 50,
     "name": "Saptarshi Dutta Choudhury",
     "price": 3.5,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/34718181\/saptarshi-dutta-choudhury",
     "IsCaptain": 0,
     "team_name": "POP"
@@ -497,7 +497,7 @@
     "id": 56,
     "name": "SriNaguru Kumar",
     "price": 12,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16004632\/srinaguru-kumar\/stats",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -515,16 +515,16 @@
     "id": 58,
     "name": "Sujith Chandrasekharan",
     "price": 2,
-    "role": " Batsman",
+    "role": "Batsman",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/22717609\/Sujith-Chandrasekharan ",
     "IsCaptain": 0,
     "team_name": "GOA"
    },
    {
     "id": 59,
-    "name": "Sujith Sasidharan Nair\n",
+    "name": "Sujith Sasidharan Nair",
     "price": 22,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/1472372\/sujith-sasidharan-nair\/stats",
     "IsCaptain": 0,
     "team_name": "GOA"
@@ -533,7 +533,7 @@
     "id": 60,
     "name": "Sukhpreet Singh",
     "price": 2.5,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.in\/player-profile\/20925715\/Sukhpreet-Singh ",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -578,7 +578,7 @@
     "id": 65,
     "name": "V N Sethuraman",
     "price": 4,
-    "role": " AllRounder",
+    "role": "AllRounder",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/22717618\/v-n-sethuraman",
     "IsCaptain": 0,
     "team_name": "TVK"
@@ -587,7 +587,7 @@
     "id": 66,
     "name": "V S Alexander",
     "price": 3,
-    "role": " Wicketkeeper-Batsman",
+    "role": "Batsman(WK)",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16089575\/v-s-alexander-(wk)",
     "IsCaptain": 0,
     "team_name": "VV"
@@ -614,7 +614,7 @@
     "id": 69,
     "name": "Vinoth P",
     "price": 2,
-    "role": " Wicketkeeper-Batsman",
+    "role": "Batsman(WK)",
     "playerlink": "https:\/\/cricheroes.com\/player-profile\/16014776\/vinoth-p",
     "IsCaptain": 0,
     "team_name": "GOA"
