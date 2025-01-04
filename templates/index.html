@@ -178,6 +178,32 @@
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
         }
 
+    .reset-btn {
+    background-color: #3498db; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding for better size */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 14px; /* Increase font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    }
+
+    .reset-btn:hover {
+    background-color: #1fa5ff;; /* Slightly darker red on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+   .reset-btn:active {
+    background-color: #012f4d;; /* Even darker red when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+    transform: scale(1); /* Restore size on click */
+     }
+
+
 
 
         @keyframes spin {
@@ -298,7 +324,7 @@
                         <option value="{{ team }}">{{ team }}</option>
                         {% endfor %}
                     </select>
-                    <button type="button" onclick="resetFilters()">Reset Filters</button>
+                    <button type="button" class="reset-btn" onclick="resetFilters()">Reset Filters</button>
                 </div>
             </div>
 
