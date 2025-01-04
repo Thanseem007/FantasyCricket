@@ -172,6 +172,58 @@ body {
         display: inline-block; /* Ensures consistent inline alignment */
         transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
     }
+
+     /* Navigation Menu Styling */
+     .nav_fpage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(90deg, #007bff, #00d4ff);
+        padding: 15px 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav_fpage a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+    }
+
+    .nav_fpage a:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 2px;
+        width: 0%;
+        background-color: #ffdd57;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .nav_fpage a:hover {
+        color: #ffdd57;
+    }
+
+    .nav_fpage a:hover:after {
+        width: 100%;
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+        .nav_fpage {
+            flex-direction: column;
+        }
+
+        .nav_fpage a {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    }
     
   
     

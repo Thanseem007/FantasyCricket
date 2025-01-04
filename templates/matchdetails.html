@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Matches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .match-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Ensures text within the card inherits the default color */
+    display: block; /* Makes the entire card clickable */
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-link:hover {
+    transform: translateY(-5px); /* Adds a hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+        .match-header {
+            font-size: 16px;
+            color: #fbcb2d;
+            font-family: math;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .match-header .league {
+            font-weight: bold;
+        }
+        .match-header .tag  {
+            font-size: 0.8em;
+            background-color: #28a745;
+            color: #28a745;;
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+        .match-teams {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .team {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .match-info {
+            color: #ff6f00;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .match-footer {
+            display: flex;
+            justify-content: space-evenly;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .match-footer a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.9em;
+        }
+        .match-footer a:hover {
+            text-decoration: underline;
+        }
+        .match-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+        }
+    .match-status {
+    font-size: 0.9em;
+    padding: 5px;
+    border-radius: 4px;
+
+    }
+    .match-status.upcoming {
+        color: #fbfdfc;  /* Green for upcoming */
+        background-color: #28a745;
+    }
+    .match-status.completed {
+    color: #fbfdfc;
+    background-color: red; 
+     }
+     .match-stadium {
+    font-size: 0.9em;
+    color: #ff6f00;
+    text-align: center;
+    margin-top: 5px;
+}
+     
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Matches Details</h1>
+
+        <div class="section">
+            <h2></h2>
+            {% if matches_this_week %}
+                {% for match in matches_this_week %}
+                <div class="match-card">
+                    <a href="{{ match.link }}" class="card-link" target="_blank">
+                    <div class="match-header">
+                        <span class="league">{{ match.league or "Prestige Premier League Season 7" }}</span>
+                        <span class="tag match-status {{ "upcoming" if match.status == "Upcoming" else "completed" }}"> {{ match.status }}</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team">{{ match.team1 }}</div>
+                        <div class="team">{{ match.team2 }}</div>
+                    </div>
+                    <div class="match-info">  {{ match.day }}, {{ match.date }}, {{ match.time }}</div>
+                    <div class="match-stadium">
+                        {{ match.venue }}
+                    </div>
+                </a>
+                </div>
+            
+                {% endfor %}
+            {% else %}
+                <p>No matches scheduled for this week.</p>
+            {% endif %}
+        </div>
+        
+        <div class="section">
+            <h2></h2>
+            {% if completed_matches %}
+                {% for match in completed_matches %}
+                <div class="match-card">
+                    <a href="{{ match.link }}" class="card-link" target="_blank">
+                    <div class="match-header">
+                        <span class="league">{{ match.league or "Prestige Premier League Season 7" }}</span>
+                        <span class="tag match-status {{ "upcoming" if match.status == "Upcoming" else "completed" }}"> {{ match.status }}</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team">{{ match.team1 }}</div>
+                        <div class="team">{{ match.team2 }}</div>
+                    </div>
+                    <div class="match-info">  {{ match.day }}, {{ match.date }}, {{ match.time }}</div>
+                    <div class="match-stadium">
+                         {{ match.venue }}
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No matches Completed.</p>
+            {% endif %}
+        </div>
+        
+
+        <div class="section">
+            <h2></h2>
+            {% if other_matches %}
+                {% for match in other_matches %}
+                <div class="match-card">
+                    <a href="{{ match.link }}" class="card-link" target="_blank">
+                    <div class="match-header">
+                        <span class="league">{{ match.league or "Prestige Premier League Season 7" }}</span>
+                        <span class="tag match-status {{ "upcoming" if match.status == "Upcoming" else "completed" }}"> {{ match.status }}</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team">{{ match.team1 }}</div>
+                        <div class="team">{{ match.team2 }}</div>
+                    </div>
+                    <div class="match-info">  {{ match.day }}, {{ match.date }}, {{ match.time }}</div>
+                    <div class="match-stadium">
+                        {{ match.venue }}
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No matches scheduled beyond this week.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

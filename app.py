@@ -13,11 +13,13 @@ from cloud_logger import CloudLogger
 from cloud_logger import setup_logger
 from io import BytesIO
 from datetime import datetime, timedelta
+import csv
 
 BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
 USER_TABLE = "userdata.xlsx"
 LOG_FILE_NAME = "log_file.txt"
+LEADERBOARD_FILE = "leaderboard.csv"
 
 app = Flask(__name__)
 app.secret_key = "secretkey"  # Replace with a secure key
@@ -74,7 +76,7 @@ def index():
     username = current_user.id
     team = load_team(username)
     budget = 100 - sum(player["price"] for player in team)
-    return render_template("index.html", players=players, budget=budget, team=team)
+    return render_template("index.html", players=players, budget=budget, team=team,originalTeam=originalTeam)
 
 @app.route("/" , methods=["GET", "POST"])
 def login():
@@ -85,7 +87,7 @@ def login():
         # Fetch credentials from the Excel file
         credentials = get_credentials_from_excel()
         # Check if the username and password exist
-        user_exists = any(str(user).lower() == username.lower() and str(pwd) == apartment_number for user, pwd in credentials)
+        user_exists = any(str(user) == username and str(pwd) == apartment_number for user, pwd in credentials)
         if not user_exists:
                 flash("Incorrect username or PIN.", category="error")
                 return redirect(url_for("login"))
@@ -100,7 +102,7 @@ def login():
         team = load_team(username)
         if not team:  # If no team, initialize an empty team
             save_team(username, [])
-        if IsDownTimeReached() :
+        if IsDownTimeReached(username) :
             return redirect(url_for("server_down"))
         return redirect(url_for("index"))
     return render_template("login.html")
@@ -147,7 +149,7 @@ def submit_team():
     username = current_user.id
     app.logger.info(f"Submitting team for user {username}")
     try:
-      if IsDownTimeReached() :
+      if IsDownTimeReached(username) :
             return redirect(url_for("server_down"))
       username = current_user.id
       apartment_number = user_apartments.get(username, "unknown")
@@ -263,6 +265,201 @@ def download_team():
     # Send the file as a response
     return send_file(output, as_attachment=True, download_name="team_members.txt", mimetype="text/plain")
 
+
+@app.route("/leaderboard")
+def leaderboard():
+    leaderboard_data = read_leaderboard()
+    return render_template("leaderboard.html", leaderboard=leaderboard_data)
+
+
+
+# Sample data for matches
+matches = [
+    {
+        "date": "2025-01-04",
+        "time": "20:00",
+        "team1": "GOA",
+        "team2": "Pattaya Pangalis",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184443/prestige-premier-league-s7/gumbal-of-alaparais-goa-vs-pattaya-pankalis-pp"
+    },
+    {
+        "date": "2025-01-04",
+        "time": "22:30",
+        "team1": "Pondy Pulaingos",
+        "team2": "Thailand Thugs",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184450/prestige-premier-league-s7/thailand-thugs-tt-vs-pondy-pulaingos-pop"
+    },
+    {
+        "date": "2025-01-11",
+        "time": "20:00",
+        "team1": "Thailand Thugs",
+        "team2": "Pondy Pulaingos",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184475/prestige-premier-league-s7/thailand-thugs-tt-vs-pondy-pulaingos-pop"
+    },
+    {
+        "date": "2025-01-11",
+        "time": "22:30",
+        "team1": "Vegas Veriyans",
+        "team2": "GOA",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184491/prestige-premier-league-s7/gumbal-of-alaparais-goa-vs-vegas-veriyans-vv"
+    },
+    {
+        "date": "2025-01-24",
+        "time": "22:30",
+        "team1": "Vegas Veriyans",
+        "team2": "The Varkala King",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184502/prestige-premier-league-s7/the-varkala-kings-tvk-vs-vegas-veriyans-vv"
+    },
+    {
+        "date": "2025-01-25",
+        "time": "22:30",
+        "team1": "Pattaya Pangalis",
+        "team2": "Pondy Pulaingos",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184525/prestige-premier-league-s7/pattaya-pankalis-pp-vs-pondy-pulaingos-pop"
+    },
+    {
+        "date": "2025-01-31",
+        "time": "22:30",
+        "team1": "GOA",
+        "team2": "Thailand Thugs",
+        "venue": "Tavya,Chennai",
+         "link":"https://cricheroes.com/scorecard/14184530/prestige-premier-league-s7/thailand-thugs-tt-vs-gumbal-of-alaparais-goa"
+    },
+    {
+        "date": "2025-02-01",
+        "time": "22:30",
+        "team1": "The Varkala King",
+        "team2": "Pattaya Pangalis",
+        "venue": "Tavya,Chennai",
+         "link":"https://cricheroes.com/scorecard/14184560/prestige-premier-league-s7/the-varkala-kings-tvk-vs-pattaya-pankalis-pp"
+    },
+    {
+        "date": "2025-02-08",
+        "time": "20:00",
+        "team1": "Vegas Veriyans",
+        "team2": "Pondy Pulaingos",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184566/prestige-premier-league-s7/pondy-pulaingos-pop-vs-vegas-veriyans-vv"
+    },
+    {
+        "date": "2025-02-08",
+        "time": "22:30",
+        "team1": "The Varkala King",
+        "team2": "GOA",
+        "venue": "Tavya,Chennai",
+        "link":"https://cricheroes.com/scorecard/14184568/prestige-premier-league-s7/gumbal-of-alaparais-goa-vs-the-varkala-kings-tvk"
+    },
+    {
+        "date": "2025-02-15",
+        "time": "22:30",
+        "team1": "Thailand Thugs",
+        "team2": "Pattaya Pangalis",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-02-22",
+        "time": "20:00",
+        "team1": "The Varkala King",
+        "team2": "Vegas Veriyans",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-02-22",
+        "time": "22:30",
+        "team1": "Pondy Pulaingos",
+        "team2": "GOA",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-01",
+        "time": "20:00",
+        "team1": "Pondy Pulaingos",
+        "team2": "Vegas Veriyans",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-01",
+        "time": "22:30",
+        "team1": "Thailand Thugs",
+        "team2": "The Varkala King",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-08",
+        "time": "20:00",
+        "team1": "GOA",
+        "team2": "The Varkala King",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-08",
+        "time": "22:30",
+        "team1": "Pondy Pulaingos",
+        "team2": "Pattaya Pangalis",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-15",
+        "time": "20:00",
+        "team1": "Thailand Thugs",
+        "team2": "Pattaya Pangalis",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-15",
+        "time": "22:30",
+        "team1": "Vegas Veriyans",
+        "team2": "GOA",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-22",
+        "time": "20:00",
+        "team1": "Pondy Pulaingos",
+        "team2": "The Varkala King",
+        "venue": "Tavya,Chennai",
+    },
+    {
+        "date": "2025-03-22",
+        "time": "22:30",
+        "team1": "Vegas Veriyans",
+        "team2": "Thailand Thugs",
+        "venue": "Tavya,Chennai",
+    }
+]
+
+
+originalTeam = ["PP","POP","VV","TVK","TT","GOA"]
+
+@app.route('/upcoming_matches')
+def upcomingmatches():
+    today = datetime.today()
+    end_of_week = today + timedelta(days=7)
+    for match in matches:
+     match_datetime = datetime.strptime(f"{match['date']} {match['time']}", "%Y-%m-%d %H:%M")
+     match['status'] = "Completed" if match_datetime < datetime.now() else "Upcoming"
+     match_date = datetime.strptime(match["date"], "%Y-%m-%d")
+     match["day"] = match_date.strftime("%A") 
+    # Split matches into two categories
+    completed_matches = [ match for match in matches if today >= datetime.strptime(match["date"], "%Y-%m-%d") ]
+
+    matches_this_week = [
+        match for match in matches if today <= datetime.strptime(match["date"], "%Y-%m-%d") <= end_of_week
+    ]
+    other_matches = [
+        match for match in matches if datetime.strptime(match["date"], "%Y-%m-%d") > end_of_week
+    ]
+
+    return render_template("matchdetails.html", matches_this_week=matches_this_week, other_matches=other_matches,completed_matches=completed_matches)
+
+
+
 # Helper Functions
 def save_team(username, team):
     apartment_number = user_apartments.get(username, "unknown")
@@ -363,8 +560,10 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     # Return the public URL of the Excel file (or you can return a signed URL if needed)
     return blob.public_url
 
-def IsDownTimeReached():
+def IsDownTimeReached(username):
     try:
+        if str(username) ==str("Test"):
+          return False
         if(is_Cloud) :
         # Initialize a client
             client = get_storage_client()
@@ -418,7 +617,51 @@ def get_credentials_from_excel():
         credentials.append((username, password))
     return credentials
 
+def read_leaderboard():
+    """Reads leaderboard data from a CSV file and sorts it by score."""
+    leaderboard = []
+    try:
+        if is_Cloud :
+            storage_client = storage.Client()
+            bucket = storage_client.bucket(BUCKET_NAME)
+            blob = bucket.blob(LEADERBOARD_FILE)
 
+            # Download the CSV data as a string
+            csv_data = blob.download_as_text()
+            # Parse the CSV data
+            reader = csv.DictReader(io.StringIO(csv_data))
+            reader.fieldnames = [header.strip().lower() for header in reader.fieldnames]
+            for row in reader:
+                leaderboard.append({
+                "name": row["name"],
+                "score": int(row["score"])  # Convert score to integer for sorting
+            })
+        else :
+            with open(LEADERBOARD_FILE, mode="r") as file:
+                reader = csv.DictReader(file)
+                print(reader.fieldnames)
+                reader.fieldnames = [header.strip().lower() for header in reader.fieldnames]
+                print(reader)
+                for row in reader:
+                    leaderboard.append({
+                "name": row["name"],
+                "score": int(row["score"])  # Convert score to integer for sorting
+                })
+        # Sort by score in descending order
+        sorted_leaderboard = sorted(leaderboard, key=lambda x: x["score"], reverse=True)
+        # Assign ranks dynamically
+        for i, player in enumerate(sorted_leaderboard, start=1):
+            player["rank"] = i
+    except FileNotFoundError:
+        print("File not found. Please ensure the leaderboard file is present.")
+        return []
+    except KeyError as e:
+        print(f"Missing column in CSV: {e}")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    return sorted_leaderboard
 
 if __name__ == "__main__":
     app.run(debug=True)

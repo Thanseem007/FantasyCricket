@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
@@ -55,7 +56,8 @@
             margin: 20px;
         }
 
-        .player-list, .selected-players {
+        .player-list,
+        .selected-players {
             max-height: 400px;
             overflow-y: scroll;
             border: 1px solid #ddd;
@@ -128,9 +130,64 @@
             margin: 10px auto;
         }
 
+
+        .filter-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Individual Filter Item Styling */
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Label Styling */
+        .filter-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        /* Multi-Select Dropdown */
+        #team-multi-filter {
+            width: 180px;
+            height: auto;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #495057;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        #team-multi-filter:hover,
+        #team-multi-filter:focus {
+            border-color: #80bdff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .loader-container {
@@ -161,7 +218,8 @@
                 margin: 10px;
             }
 
-            .player-list, .selected-players {
+            .player-list,
+            .selected-players {
                 max-width: 100%;
                 width: 100%;
                 margin-bottom: 20px;
@@ -209,39 +267,59 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome, {{ current_user.id }}</h1>
         <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
     </header>
-    <h2>Budget Remaining:  {{ budget }} Pts</h2>
+    <nav class="nav_fpage">
+        <a target="_blank" href="{{ url_for('leaderboard') }}">🏆 Leaderboard</a>
+        <a target="_blank" href="{{ url_for('upcomingmatches') }}">📅 Match Schedules</a>
+    </nav>
+    <h2>Budget Remaining: {{ budget }} Pts</h2>
     <div class="counter">
         Players Selected: <span id="players-selected">{{ team|length }}</span> / 11
     </div>
     <div class="error-message" id="error-message-selection"></div>
 
     <div class="players-container">
+
         <!-- Available Players Section -->
         <div class="player-list">
             <h3>Available Players</h3>
+            <!-- Multi-Select Filter -->
+            <div class="filter-container">
+                <!-- Team Multi-Select Filter -->
+                <div class="filter-item">
+                    <label for="team-multi-filter" class="filter-label">Filter by Team:</label>
+                    <select id="team-multi-filter" multiple size="4" onchange="filterPlayersByTeams()">
+                        {% for team in originalTeam %}
+                        <option value="{{ team }}">{{ team }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="button" onclick="resetFilters()">Reset Filters</button>
+                </div>
+            </div>
+
             {% for player in players %}
-            <div class="player-item">
+            <div class="player-item" data-team="{{ player.team_name }}">
                 <span>
                     <a class="player-link" href=" {{player.playerlink }}" target="_blank">
                         {{ player.name }}
-                    </a> 
+                    </a>
                     ({{ player.role }})
                     {% if player.team_name %}
-                <span class="team-name">{{ player.team_name }}</span>
-                {% endif %} 
-                -  {{ player.price }} Pts
+                    <span class="team-name">{{ player.team_name }}</span>
+                    {% endif %}
+                    - {{ player.price }} Pts
                 </span>
-                
+
                 {% if player in team %}
                 <button class="disabled select-btn">Selected</button>
                 {% else %}
-                <button class="select-btn" onclick="selectPlayer({{ player.id }}, {{ player.price }})" 
-                        id="select-{{ player.id }}">Select</button>
+                <button class="select-btn" onclick="selectPlayer({{ player.id }}, {{ player.price }})"
+                    id="select-{{ player.id }}">Select</button>
                 {% endif %}
             </div>
             {% endfor %}
@@ -253,24 +331,20 @@
             <div class="loader-container">
                 <div class="loader" id="loader"></div>
             </div>
-            <ul id="team-list" >
+            <ul id="team-list">
                 {% for player in team %}
-                <li style="font-size: 13px;" >
-                    {{ player.name }} ({{ player.role }})   
+                <li style="font-size: 13px;">
+                    {{ player.name }} ({{ player.role }})
                     {% if player.team_name %}
                     <span class="team-name">{{ player.team_name }}</span>
-                    {% endif %} 
-                    -  {{ player.price }} Pts
+                    {% endif %}
+                    - {{ player.price }} Pts
                     <label class="captain-label">
                         <div class="actions">
-                        <input 
-                            type="radio" 
-                            name="captain" 
-                            value="{{ player.id }}" 
-                            {% if player.IsCaptain == 1 %}checked{% endif %}
-                            onchange="handleCaptainChange(this)"
-                        >
-                        <img src="https://cdn4.iconfinder.com/data/icons/cricket-11/48/25-512.png" alt="Captain" width="20" height="20">
+                            <input type="radio" name="captain" value="{{ player.id }}" {% if player.IsCaptain==1
+                                %}checked{% endif %} onchange="handleCaptainChange(this)">
+                            <img src="https://cdn4.iconfinder.com/data/icons/cricket-11/48/25-512.png" alt="Captain"
+                                width="20" height="20">
                     </label>
                     <a class="remove_Player" href="{{ url_for('remove_player', player_id=player.id) }}">Remove</a>
                 </li>
@@ -280,7 +354,7 @@
 
         <div class="error-message" id="error-message"></div>
     </div>
- 
+
     <form action="{{ url_for('submit_team') }}" method="POST">
         <input type="hidden" name="captain_id" id="captain-id">
         <button type="submit" id="submit-button" {% if team|length < 11 %}disabled{% endif %}>Submit Team</button>
@@ -288,18 +362,67 @@
 
     <script>
         let budget = {{ budget }};
-        let playersSelected = {{ team|length }};
+        let playersSelected = {{ team| length }};
         const playersSelectedDisplay = document.getElementById('players-selected');
         const submitButton = document.getElementById('submit-button');
         const errorMessage = document.getElementById('error-message');
-        const erroMessageSelection =document.getElementById('error-message-selection'); 
+        const erroMessageSelection = document.getElementById('error-message-selection');
         const loader = document.getElementById('loader');
-        
-       
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedTeams = JSON.parse(localStorage.getItem('selectedTeams')) || [];
+            const multiSelect = document.getElementById('team-multi-filter');
+            console.log(selectedTeams);
+            for (const option of multiSelect.options) {
+                if (selectedTeams.includes(option.value)) {
+                    option.selected = true;
+                }
+            }
+            filterPlayersByTeams(); // Apply the filter on page load
+        });
+
+        document.getElementById('team-multi-filter').addEventListener('change', () => {
+            console.log(1);
+
+            const selectedTeams = Array.from(document.getElementById('team-multi-filter').selectedOptions).map(
+                (option) => option.value
+            );
+
+            localStorage.setItem('selectedTeams', JSON.stringify(selectedTeams));
+        });
+
+        function filterPlayersByTeams() {
+            const selectedTeams = Array.from(document.getElementById('team-multi-filter').selectedOptions)
+                .map(option => option.value.toLowerCase());
+            const playerItems = document.querySelectorAll('.player-item');
+
+            playerItems.forEach(item => {
+                const playerTeam = item.getAttribute('data-team').toLowerCase();
+
+                if (selectedTeams.length === 0 || selectedTeams.includes(playerTeam)) {
+                    item.style.display = ''; // Show player
+                } else {
+                    item.style.display = 'none'; // Hide player
+                }
+            });
+        }
+
+        // Function to reset the filters
+        function resetFilters() {
+            // Reset the multi-select filter
+            const multiSelect = document.getElementById('team-multi-filter');
+            multiSelect.selectedIndex = -1; // This clears all selected options
+            // Trigger the filtering process to reset the view (show all players)
+            const selectedTeams = Array.from(document.getElementById('team-multi-filter').selectedOptions).map(
+                (option) => option.value
+            );
+            localStorage.setItem('selectedTeams', JSON.stringify(selectedTeams));
+            filterPlayersByTeams();
+        }
 
         function selectPlayer(playerId, playerPrice) {
-            erroMessageSelection.textContent ="";
-            errorMessage.textContent ="";
+            erroMessageSelection.textContent = "";
+            errorMessage.textContent = "";
             if (playersSelected >= 11) {
                 erroMessageSelection.textContent = "You have already selected the maximum number of players.";
                 return;
@@ -309,6 +432,10 @@
                 erroMessageSelection.textContent = "Not enough budget to select this player.";
                 return;
             }
+
+
+
+
             // Show the loader
             loader.style.display = "block";
 
@@ -317,46 +444,47 @@
         }
 
         function updateSubmitButtonState() {
-            if (playersSelected < 11 ) {
+            if (playersSelected < 11) {
                 submitButton.setAttribute('disabled', true);
             }
         }
 
-        document.querySelector('form').addEventListener('submit', function() {
-        const selectedCaptain = document.querySelector('input[name="captain"]:checked');
-        erroMessageSelection.textContent ="";
-        errorMessage.textContent ="";
-        if (!selectedCaptain) {
-            event.preventDefault(); // Prevent form submission
-           errorMessage.textContent = "Please select a captain before submitting your team.";
-        } else {
-            document.getElementById('captain-id').value = selectedCaptain.value;
-        }
+        document.querySelector('form').addEventListener('submit', function () {
+            const selectedCaptain = document.querySelector('input[name="captain"]:checked');
+            erroMessageSelection.textContent = "";
+            errorMessage.textContent = "";
+            if (!selectedCaptain) {
+                event.preventDefault(); // Prevent form submission
+                errorMessage.textContent = "Please select a captain before submitting your team.";
+            } else {
+                document.getElementById('captain-id').value = selectedCaptain.value;
+            }
         });
 
         function handleCaptainChange(radio) {
-        const selectedCaptainId = radio.value;
-        console.log("Selected Captain ID:", selectedCaptainId);
-        // Optionally, you can send the selected ID to the backend using an AJAX request.
-        // Call the backend API to update the captain
-        fetch(`/update_captain/${selectedCaptainId}`, {
-        method: 'POST',
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-            console.log('Captain updated successfully');
-        } else {
-            console.error('Error updating captain:', data.message);
+            const selectedCaptainId = radio.value;
+            console.log("Selected Captain ID:", selectedCaptainId);
+            // Optionally, you can send the selected ID to the backend using an AJAX request.
+            // Call the backend API to update the captain
+            fetch(`/update_captain/${selectedCaptainId}`, {
+                method: 'POST',
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('Captain updated successfully');
+                    } else {
+                        console.error('Error updating captain:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
-        })
-      .catch(error => {
-        console.error('Error:', error);
-       });
-       }
 
         // Initialize submit button state
         updateSubmitButtonState();
     </script>
 </body>
+
 </html>
