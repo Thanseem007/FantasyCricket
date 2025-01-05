@@ -583,12 +583,15 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     updated_excel_data.seek(0)  # Rewind the stream to the beginning
     
     try:
+     
      if generation_number is None:
                     # Upload without if_generation_match for new file
         blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
      else :
+        current_generation = blob.generation
+        app.logger.info(f"Generation - {current_generation}") 
      # Upload the updated Excel file back to GCS
-        blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", if_generation_match=generation_number)
+        blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", if_generation_match=current_generation)
     except PreconditionFailed:
          raise PreconditionFailed("The file has been updated by another process. Please retry.")
 
