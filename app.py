@@ -7,7 +7,7 @@ import openpyxl
 from google.cloud import storage
 import io
 from flask import jsonify
-import traceback
+from filelock import FileLock
 import logging
 from cloud_logger import CloudLogger
 from cloud_logger import setup_logger
@@ -149,6 +149,9 @@ def remove_player(player_id):
 def submit_team():
     username = current_user.id
     app.logger.info(f"Submitting team for user {username}")
+    # Lock file path to prevent race conditions during file update
+    lock_filename = "/tmp/user_players.lock"  # The lock file path on your system
+    lock = FileLock(lock_filename,timeout=10)
     try:
       if IsDownTimeReached(username) :
             return redirect(url_for("server_down"))
@@ -158,7 +161,9 @@ def submit_team():
     
       captain_id = request.form.get('captain_id')
     # file_url = blob.public_url  # Make the file publicly accessible
-      file_url = update_excel_file(username, apartment_number,team,captain_id) 
+      with lock:
+        app.logger.info(f"Acquired lock to update Excel file for user {username}")
+        file_url = update_excel_file(username, apartment_number,team,captain_id) 
       app.logger.info(f"Team submitted successfully for user {username}.") 
     except Exception as e:
        app.logger.error(f"Error occurred while submitting team for user {username}: {str(e)}")
