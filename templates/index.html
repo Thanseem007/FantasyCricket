@@ -341,7 +341,7 @@
                     - {{ player.price }} Pts
                 </span>
 
-                {% if player in team %}
+                {% if player.id in team_player_ids %}
                 <button class="disabled select-btn">Selected</button>
                 {% else %}
                 <button class="select-btn" onclick="selectPlayer({{ player.id }}, {{ player.price }})"

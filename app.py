@@ -75,8 +75,9 @@ def load_user(username):
 def index():
     username = current_user.id
     team = load_team(username)
+    team_player_ids = [player["id"] for player in team]
     budget = 100 - sum(player["price"] for player in team)
-    return render_template("index.html", players=players, budget=budget, team=team,originalTeam=originalTeam)
+    return render_template("index.html", players=players, budget=budget, team=team,team_player_ids= team_player_ids,originalTeam=originalTeam)
 
 @app.route("/" , methods=["GET", "POST"])
 def login():
@@ -662,6 +663,8 @@ def read_leaderboard():
         print(f"An error occurred: {e}")
         return []
     return sorted_leaderboard
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
