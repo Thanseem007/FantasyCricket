@@ -35,7 +35,7 @@ login_manager.login_view = "login"
 # Dictionary to store user apartment numbers
 user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
-is_Cloud = False
+is_Cloud = True
 if is_Cloud :
    storage_client = storage.Client()
    #Cloud Logger
