@@ -531,7 +531,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     excel_filename = "user_players.xlsx"
     
     # Initialize the GCS client and bucket
-    client = get_storage_client_new()
+    client = get_storage_client()
     bucket = client.bucket(BUCKET_NAME)  # Replace with your actual GCS bucket name
     blob = bucket.blob(excel_filename)
 
