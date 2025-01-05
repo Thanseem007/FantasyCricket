@@ -541,7 +541,6 @@ def update_excel_file(username,apartment_number ,team,captain_id):
         blob.reload() 
         excel_data = blob.download_as_bytes()
         generation_number = blob.generation
-        app.logger.info(f"Generation0 - {generation_number}") 
         workbook = openpyxl.load_workbook(io.BytesIO(excel_data))
         sheet = workbook.active
     else:
