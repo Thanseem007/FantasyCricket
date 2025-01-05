@@ -155,7 +155,7 @@ def submit_team():
     lock_filename = "/tmp/user_players.lock"  # The lock file path on your system
     lock = FileLock(lock_filename,timeout=10)
     
-    max_retries = 2  # Maximum retry attempts
+    max_retries = 3  # Maximum retry attempts
     backoff_factor = 2  # Exponential backoff factor
 
     # Retry logic for the team submission process
@@ -538,6 +538,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     # Check if the file exists
     if blob.exists():
         # Download the existing file from GCS
+        blob.reload() 
         excel_data = blob.download_as_bytes()
         generation_number = blob.generation
         app.logger.info(f"Generation0 - {generation_number}") 
