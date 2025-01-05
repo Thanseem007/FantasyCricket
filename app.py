@@ -14,6 +14,8 @@ from cloud_logger import setup_logger
 from io import BytesIO
 from datetime import datetime, timedelta
 import csv
+from google.cloud.exceptions import PreconditionFailed
+import time
 
 BUCKET_NAME = "fantasy_cricket_asia" 
 DO_SERVER_DOWN = "doServerdown.txt"
@@ -33,7 +35,7 @@ login_manager.login_view = "login"
 # Dictionary to store user apartment numbers
 user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
-is_Cloud = True
+is_Cloud = False
 if is_Cloud :
    storage_client = storage.Client()
    #Cloud Logger
@@ -152,23 +154,45 @@ def submit_team():
     # Lock file path to prevent race conditions during file update
     lock_filename = "/tmp/user_players.lock"  # The lock file path on your system
     lock = FileLock(lock_filename,timeout=10)
-    try:
-      if IsDownTimeReached(username) :
-            return redirect(url_for("server_down"))
-      username = current_user.id
-      apartment_number = user_apartments.get(username, "unknown")
-      team = load_team(username)
     
-      captain_id = request.form.get('captain_id')
+    max_retries = 2  # Maximum retry attempts
+    backoff_factor = 2  # Exponential backoff factor
+
+    # Retry logic for the team submission process
+    attempt = 0
+    while attempt < max_retries:
+        try:
+            if IsDownTimeReached(username) :
+                return redirect(url_for("server_down"))
+            username = current_user.id
+            apartment_number = user_apartments.get(username, "unknown")
+            team = load_team(username)
+    
+            captain_id = request.form.get('captain_id')
     # file_url = blob.public_url  # Make the file publicly accessible
-      with lock:
-        app.logger.info(f"Acquired lock to update Excel file for user {username}")
-        file_url = update_excel_file(username, apartment_number,team,captain_id) 
-      app.logger.info(f"Team submitted successfully for user {username}.") 
-    except Exception as e:
-       app.logger.error(f"Error occurred while submitting team for user {username}: {str(e)}")
-       return render_template("error.html", error_message="An unexpected error occurred. Please try again later.")
-    return render_template("submit.html", team=team)
+            with lock:
+                app.logger.info(f"Acquired lock to update Excel file for user {username}")
+                file_url = update_excel_file(username, apartment_number,team,captain_id) 
+            app.logger.info(f"Team submitted successfully for user {username}.") 
+            return render_template("submit.html", team=team)
+
+        except storage.exceptions.PreconditionFailed:
+            
+            attempt += 1
+            app.logger.error(f"PreconditionFailed while updating Excel file for user {username}. Attempt {attempt}/{max_retries}")
+
+            if attempt < max_retries:
+                sleep_time = backoff_factor ** attempt
+                app.logger.info(f"Retrying attempt {attempt}/{max_retries} after {sleep_time} seconds...")
+                time.sleep(sleep_time)
+            else:
+                app.logger.error(f"Max retries reached for user {username}. Could not update file.")
+                return render_template("error.html", error_message="An unexpected error occurred. Please try again later.")
+        
+        except Exception as e:
+            app.logger.error(f"Error occurred while submitting team for user {username}: {str(e)}")
+            return render_template("error.html", error_message="An unexpected error occurred. Please try again later.")
+    
 
 @app.route('/update_captain/<int:player_id>', methods=['POST'])
 def update_captain(player_id):
@@ -512,6 +536,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     if blob.exists():
         # Download the existing file from GCS
         excel_data = blob.download_as_bytes()
+        generation_number = blob.generation
         workbook = openpyxl.load_workbook(io.BytesIO(excel_data))
         sheet = workbook.active
     else:
@@ -556,10 +581,18 @@ def update_excel_file(username,apartment_number ,team,captain_id):
     updated_excel_data = io.BytesIO()
     workbook.save(updated_excel_data)
     updated_excel_data.seek(0)  # Rewind the stream to the beginning
+    
+    try:
+     if generation_number is None:
+                    # Upload without if_generation_match for new file
+        blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+     else :
+     # Upload the updated Excel file back to GCS
+        blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", if_generation_match=generation_number)
+    except storage.exceptions.PreconditionFailed:
+         raise PreconditionFailed("The file has been updated by another process. Please retry.")
 
-    # Upload the updated Excel file back to GCS
-    blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-
+    
     # Make the file publicly accessible (optional)
     blob.make_public()
 
