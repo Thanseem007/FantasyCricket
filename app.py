@@ -176,7 +176,7 @@ def submit_team():
             app.logger.info(f"Team submitted successfully for user {username}.") 
             return render_template("submit.html", team=team)
 
-        except storage.exceptions.PreconditionFailed:
+        except PreconditionFailed:
             
             attempt += 1
             app.logger.error(f"PreconditionFailed while updating Excel file for user {username}. Attempt {attempt}/{max_retries}")
@@ -589,7 +589,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
      else :
      # Upload the updated Excel file back to GCS
         blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", if_generation_match=generation_number)
-    except storage.exceptions.PreconditionFailed:
+    except PreconditionFailed:
          raise PreconditionFailed("The file has been updated by another process. Please retry.")
 
     
