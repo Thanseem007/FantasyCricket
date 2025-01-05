@@ -523,12 +523,15 @@ def load_team(username):
 def get_storage_client():
     return storage_client
 
+def get_storage_client_new():
+    return storage.Client()
+
 def update_excel_file(username,apartment_number ,team,captain_id):
     # Define the Excel file name in the GCS bucket
     excel_filename = "user_players.xlsx"
     
     # Initialize the GCS client and bucket
-    client = get_storage_client()
+    client = get_storage_client_new()
     bucket = client.bucket(BUCKET_NAME)  # Replace with your actual GCS bucket name
     blob = bucket.blob(excel_filename)
 
@@ -537,6 +540,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
         # Download the existing file from GCS
         excel_data = blob.download_as_bytes()
         generation_number = blob.generation
+        app.logger.info(f"Generation0 - {generation_number}") 
         workbook = openpyxl.load_workbook(io.BytesIO(excel_data))
         sheet = workbook.active
     else:
@@ -589,7 +593,7 @@ def update_excel_file(username,apartment_number ,team,captain_id):
         blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
      else :
         current_generation = blob.generation
-        app.logger.info(f"Generation - {current_generation}") 
+        app.logger.info(f"Generation1 - {current_generation}") 
      # Upload the updated Excel file back to GCS
         blob.upload_from_file(updated_excel_data, content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", if_generation_match=current_generation)
     except PreconditionFailed:
