@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, request, redirect, url_for, flash,send_file
+from flask import Flask, render_template, request, redirect, url_for, flash,send_file,session
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user 
 from google.cloud import storage
 import openpyxl
@@ -32,8 +32,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-# Dictionary to store user apartment numbers
-user_apartments = {}  # Format: {username: apartment_number}
 team_dir = "user_teams"  # Directory to store user teams
 is_Cloud = True
 if is_Cloud :
@@ -99,7 +97,7 @@ def login():
         login_user(user)
         
         # Save apartment number
-        user_apartments[username] = apartment_number
+        session['apartment_number'] = apartment_number
 
         # Load team if it exists
         team = load_team(username)
@@ -165,7 +163,7 @@ def submit_team():
             if IsDownTimeReached(username) :
                 return redirect(url_for("server_down"))
             username = current_user.id
-            apartment_number = user_apartments.get(username, "unknown")
+            apartment_number = session.get('apartment_number', 'Unknown')
             team = load_team(username)
     
             captain_id = request.form.get('captain_id')
@@ -492,7 +490,7 @@ def upcomingmatches():
 
 # Helper Functions
 def save_team(username, team):
-    apartment_number = user_apartments.get(username, "unknown")
+    apartment_number = session.get('apartment_number', 'Unknown')
     if is_Cloud :
       filename = f"{username}_{apartment_number}.json"
       client = get_storage_client()
@@ -505,7 +503,7 @@ def save_team(username, team):
           json.dump(team, file)
 
 def load_team(username):
-    apartment_number = user_apartments.get(username, "unknown")
+    apartment_number = session.get('apartment_number', 'Unknown')
     filename = f"{username}_{apartment_number}.json"
     if(is_Cloud) :
        client = get_storage_client()
