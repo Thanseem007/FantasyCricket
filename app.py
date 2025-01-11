@@ -22,6 +22,7 @@ DO_SERVER_DOWN = "doServerdown.txt"
 USER_TABLE = "userdata.xlsx"
 LOG_FILE_NAME = "log_file.txt"
 LEADERBOARD_FILE = "leaderboard.csv"
+PLAYERLEADERBOARD_FILE = "playerleaderboard.csv"
 
 app = Flask(__name__)
 app.secret_key = "secretkey"  # Replace with a secure key
@@ -300,6 +301,10 @@ def leaderboard():
     return render_template("leaderboard.html", leaderboard=leaderboard_data)
 
 
+@app.route("/playerleaderboard")
+def playerleaderboard():
+    leaderboard_data = read_playerleaderboard()
+    return render_template("playerleaderboard.html", leaderboard=leaderboard_data)
 
 # Sample data for matches
 matches = [
@@ -682,6 +687,53 @@ def read_leaderboard():
             })
         else :
             with open(LEADERBOARD_FILE, mode="r") as file:
+                reader = csv.DictReader(file)
+                print(reader.fieldnames)
+                reader.fieldnames = [header.strip().lower() for header in reader.fieldnames]
+                print(reader)
+                for row in reader:
+                    leaderboard.append({
+                "name": row["name"],
+                "score": int(row["score"])  # Convert score to integer for sorting
+                })
+        # Sort by score in descending order
+        sorted_leaderboard = sorted(leaderboard, key=lambda x: x["score"], reverse=True)
+        # Assign ranks dynamically
+        for i, player in enumerate(sorted_leaderboard, start=1):
+            player["rank"] = i
+    except FileNotFoundError:
+        print("File not found. Please ensure the leaderboard file is present.")
+        return []
+    except KeyError as e:
+        print(f"Missing column in CSV: {e}")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    return sorted_leaderboard
+
+
+def read_playerleaderboard():
+    """Reads leaderboard data from a CSV file and sorts it by score."""
+    leaderboard = []
+    try:
+        if is_Cloud :
+            storage_client = storage.Client()
+            bucket = storage_client.bucket(BUCKET_NAME)
+            blob = bucket.blob(PLAYERLEADERBOARD_FILE)
+
+            # Download the CSV data as a string
+            csv_data = blob.download_as_text()
+            # Parse the CSV data
+            reader = csv.DictReader(io.StringIO(csv_data))
+            reader.fieldnames = [header.strip().lower() for header in reader.fieldnames]
+            for row in reader:
+                leaderboard.append({
+                "name": row["name"],
+                "score": int(row["score"])  # Convert score to integer for sorting
+            })
+        else :
+            with open(PLAYERLEADERBOARD_FILE, mode="r") as file:
                 reader = csv.DictReader(file)
                 print(reader.fieldnames)
                 reader.fieldnames = [header.strip().lower() for header in reader.fieldnames]
