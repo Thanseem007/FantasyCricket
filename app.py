@@ -479,14 +479,17 @@ def upcomingmatches():
      match['status'] = "Completed" if match_datetime < datetime.now() else "Upcoming"
      match_date = datetime.strptime(match["date"], "%Y-%m-%d")
      match["day"] = match_date.strftime("%A") 
+     match["datetime"] = match_datetime
+    
     # Split matches into two categories
-    completed_matches = [ match for match in matches if today >= datetime.strptime(match["date"], "%Y-%m-%d") ]
-
+    completed_matches = [ match for match in matches if today >= match["datetime"] ]
+    
     matches_this_week = [
-        match for match in matches if today <= datetime.strptime(match["date"], "%Y-%m-%d") <= end_of_week
+        match for match in matches if today <= match["datetime"] <= end_of_week
     ]
+
     other_matches = [
-        match for match in matches if datetime.strptime(match["date"], "%Y-%m-%d") > end_of_week
+        match for match in matches if match["datetime"]  > end_of_week
     ]
 
     return render_template("matchdetails.html", matches_this_week=matches_this_week, other_matches=other_matches,completed_matches=completed_matches)
