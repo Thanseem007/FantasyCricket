@@ -205,7 +205,7 @@
     "IsCaptain": 0,
     "team_name": "VV"
    },{
-    "id": 24,
+    "id": 76,
     "name": "Karthik Balu",
     "price": 20,
     "role": "AllRounder",
@@ -214,7 +214,7 @@
     "team_name": "PP"
    },
    {
-    "id": 25,
+    "id": 24,
     "name": "Karthik Muthuvali",
     "price": 3,
     "role": "Batsman",
@@ -223,7 +223,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 26,
+    "id": 25,
     "name": "Karthik Nair",
     "price": 22,
     "role": "AllRounder",
@@ -232,7 +232,7 @@
     "team_name": "PP"
    },
    {
-    "id": 27,
+    "id": 26,
     "name": "Lenin",
     "price": 4.5,
     "role": "Batsman",
@@ -241,7 +241,7 @@
     "team_name": "POP"
    },
    {
-    "id": 28,
+    "id": 27,
     "name": "Manoj Kumar M",
     "price": 8,
     "role": "AllRounder",
@@ -250,7 +250,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 29,
+    "id": 28,
     "name": "Mazher",
     "price": 10,
     "role": "AllRounder",
@@ -259,7 +259,7 @@
     "team_name": "POP"
    },
    {
-    "id": 30,
+    "id": 29,
     "name": "Mohan raj",
     "price": 22,
     "role": "Batsman",
@@ -268,7 +268,7 @@
     "team_name": "POP"
    },
    {
-    "id": 31,
+    "id": 30,
     "name": "Nishanth S",
     "price": 16,
     "role": "AllRounder",
@@ -277,7 +277,7 @@
     "team_name": "PP"
    },
    {
-    "id": 32,
+    "id": 31,
     "name": "Parthiban K",
     "price": 2,
     "role": "Batsman",
@@ -286,7 +286,7 @@
     "team_name": "PP"
    },
    {
-    "id": 33,
+    "id": 32,
     "name": "Pradeep Elijah J",
     "price": 3,
     "role": "Batsman",
@@ -295,7 +295,7 @@
     "team_name": "TT"
    },
    {
-    "id": 34,
+    "id": 33,
     "name": "Pradi",
     "price": 12,
     "role": "Batsman",
@@ -304,7 +304,7 @@
     "team_name": "PP"
    },
    {
-    "id": 35,
+    "id": 34,
     "name": "PRAKASH BURRA",
     "price": 2,
     "role": "AllRounder",
@@ -313,7 +313,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 36,
+    "id": 35,
     "name": "Praveen Kumar",
     "price": 4,
     "role": "Batsman",
@@ -322,7 +322,7 @@
     "team_name": "TT"
    },
    {
-    "id": 37,
+    "id": 36,
     "name": "Praveen paulraj PCY",
     "price": 2,
     "role": "AllRounder",
@@ -331,7 +331,7 @@
     "team_name": "TT"
    },
    {
-    "id": 38,
+    "id": 37,
     "name": "Ragul Srinivasan",
     "price": 4,
     "role": "Batsman",
@@ -340,7 +340,7 @@
     "team_name": "PP"
    },
    {
-    "id": 39,
+    "id": 38,
     "name": "RAHUL",
     "price": 10,
     "role": "AllRounder",
@@ -349,7 +349,7 @@
     "team_name": "TT"
    },
    {
-    "id": 40,
+    "id": 39,
     "name": "Rajesh Menon",
     "price": 10,
     "role": "AllRounder",
@@ -358,7 +358,7 @@
     "team_name": "POP"
    },
    {
-    "id": 41,
+    "id": 40,
     "name": "Rajini Ashok",
     "price": 9,
     "role": "AllRounder",
@@ -367,7 +367,7 @@
     "team_name": "PP"
    },
    {
-    "id": 42,
+    "id": 41,
     "name": "RAM KUMAR",
     "price": 6,
     "role": "Batsman",
@@ -376,7 +376,7 @@
     "team_name": "POP"
    },
    {
-    "id": 43,
+    "id": 42,
     "name": "Ramesh",
     "price": 2.5,
     "role": "AllRounder",
@@ -385,7 +385,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 44,
+    "id": 43,
     "name": "Ramke",
     "price": 28,
     "role": "AllRounder",
@@ -394,7 +394,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 45,
+    "id": 44,
     "name": "Ravish",
     "price": 2,
     "role": "Batsman",
@@ -403,7 +403,7 @@
     "team_name": "TT"
    },
    {
-    "id": 46,
+    "id": 45,
     "name": "Rees Emmanuel",
     "price": 4,
     "role": "AllRounder",
@@ -412,7 +412,7 @@
     "team_name": "PP"
    },
    {
-    "id": 47,
+    "id": 46,
     "name": "Ritesh G",
     "price": 3,
     "role": "AllRounder",
@@ -421,7 +421,7 @@
     "team_name": "VV"
    },
    {
-    "id": 48,
+    "id": 47,
     "name": "Rocky",
     "price": 2,
     "role": "Batsman(WK)",
@@ -430,7 +430,7 @@
     "team_name": "PP"
    },
    {
-    "id": 49,
+    "id": 48,
     "name": "Sabareesh S",
     "price": 26,
     "role": "AllRounder",
@@ -439,7 +439,7 @@
     "team_name": "PP"
    },
    {
-    "id": 50,
+    "id": 49,
     "name": "Sankaran",
     "price": 3,
     "role": "Batsman",
@@ -448,7 +448,7 @@
     "team_name": "VV"
    },
    {
-    "id": 51,
+    "id": 50,
     "name": "Saptarshi Dutta Choudhury",
     "price": 3.5,
     "role": "AllRounder",
@@ -457,7 +457,7 @@
     "team_name": "POP"
    },
    {
-    "id": 52,
+    "id": 51,
     "name": "Saravanan",
     "price": 2.5,
     "role": "AllRounder",
@@ -466,7 +466,7 @@
     "team_name": "VV"
    },
    {
-    "id": 53,
+    "id": 52,
     "name": "Sathish",
     "price": 7,
     "role": "AllRounder",
@@ -475,7 +475,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 54,
+    "id": 53,
     "name": "Senthilraj",
     "price": 5,
     "role": "AllRounder",
@@ -484,7 +484,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 55,
+    "id": 54,
     "name": "Sreenath",
     "price": 18,
     "role": "AllRounder",
@@ -493,7 +493,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 56,
+    "id": 55,
     "name": "Srikanth",
     "price": 2,
     "role": "Batsman",
@@ -502,7 +502,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 57,
+    "id": 56,
     "name": "SriNaguru Kumar",
     "price": 12,
     "role": "AllRounder",
@@ -511,7 +511,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 58,
+    "id": 57,
     "name": "Srinivasan M",
     "price": 18,
     "role": "AllRounder",
@@ -520,7 +520,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 59,
+    "id": 58,
     "name": "Sujith Chandrasekharan",
     "price": 2,
     "role": "Batsman",
@@ -529,7 +529,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 60,
+    "id": 59,
     "name": "Sujith Sasidharan Nair",
     "price": 22,
     "role": "AllRounder",
@@ -538,7 +538,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 61,
+    "id": 60,
     "name": "Sukhpreet Singh",
     "price": 2.5,
     "role": "AllRounder",
@@ -547,7 +547,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 62,
+    "id": 61,
     "name": "Tamil Selvan",
     "price": 9,
     "role": "AllRounder",
@@ -556,7 +556,7 @@
     "team_name": "POP"
    },
    {
-    "id": 63,
+    "id": 62,
     "name": "Thanseem",
     "price": 24,
     "role": "AllRounder",
@@ -565,7 +565,7 @@
     "team_name": "TT"
    },
    {
-    "id": 64,
+    "id": 63,
     "name": "Uday kumar",
     "price": 4,
     "role": "AllRounder",
@@ -574,7 +574,7 @@
     "team_name": "TT"
    },
    {
-    "id": 65,
+    "id": 64,
     "name": "Umanath P",
     "price": 12,
     "role": "AllRounder",
@@ -583,7 +583,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 66,
+    "id": 65,
     "name": "V N Sethuraman",
     "price": 4,
     "role": "AllRounder",
@@ -592,7 +592,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 67,
+    "id": 66,
     "name": "V S Alexander",
     "price": 3,
     "role": "Batsman(WK)",
@@ -601,7 +601,7 @@
     "team_name": "VV"
    },
    {
-    "id": 68,
+    "id": 67,
     "name": "Vijay S",
     "price": 2,
     "role": "Batsman",
@@ -610,7 +610,7 @@
     "team_name": "PP"
    },
    {
-    "id": 69,
+    "id": 68,
     "name": "Vijay Surya S",
     "price": 32,
     "role": "AllRounder",
@@ -619,7 +619,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 70,
+    "id": 69,
     "name": "Vinoth P",
     "price": 2,
     "role": "Batsman(WK)",
@@ -628,7 +628,7 @@
     "team_name": "GOA"
    },
    {
-    "id": 71,
+    "id": 70,
     "name": "Vinoth S P",
     "price": 2.5,
     "role": "AllRounder",
@@ -637,7 +637,7 @@
     "team_name": "POP"
    },
    {
-    "id": 72,
+    "id": 71,
     "name": "Vipin M",
     "price": 14,
     "role": "AllRounder",
@@ -646,7 +646,7 @@
     "team_name": "PP"
    },
    {
-    "id": 73,
+    "id": 72,
     "name": "Vissu",
     "price": 9,
     "role": "AllRounder",
@@ -655,7 +655,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 74,
+    "id": 73,
     "name": "YesKay durai",
     "price": 20,
     "role": "AllRounder",
@@ -664,7 +664,7 @@
     "team_name": "TVK"
    },
    {
-    "id": 75,
+    "id": 74,
     "name": "Yogaraj",
     "price": 28,
     "role": "AllRounder",
@@ -673,7 +673,7 @@
     "team_name": "VV"
    },
    {
-    "id": 76,
+    "id": 75,
     "name": "Yuva K J",
     "price": 2,
     "role": "AllRounder",
