@@ -17,7 +17,7 @@ import csv
 from google.cloud.exceptions import PreconditionFailed
 import time
 
-BUCKET_NAME = "fantasy_cricket_asia" 
+BUCKET_NAME = "fantasy_cricket_asia_1" 
 DO_SERVER_DOWN = "doServerdown.txt"
 USER_TABLE = "userdata.xlsx"
 LOG_FILE_NAME = "log_file.txt"
