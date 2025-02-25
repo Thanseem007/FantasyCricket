@@ -169,6 +169,15 @@
     "IsCaptain": 0,
     "team_name": "TVK"
    },
+    {
+    "id": 77,
+    "name": "Harish",
+    "price": 3,
+    "role": "Batsman",
+    "playerlink": "https://cricheroes.com/player-profile/16003489/harish@pcy/stats",
+    "IsCaptain": 0,
+    "team_name": "TT"
+   },
    {
     "id": 20,
     "name": "Jai",
